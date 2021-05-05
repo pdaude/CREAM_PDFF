@@ -1,0 +1,10 @@
+nR2: 145
+R2max: 144.0
+R2cand: [40.]
+mu: 0.1
+nB0: 100
+nICMiter: 10
+graphcut: True
+multiScale: True
+use3D: True
+magnitudeDiscrimination: False

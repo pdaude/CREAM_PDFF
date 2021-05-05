@@ -1,0 +1,5 @@
+# According to ISMRM fat/water challenge
+fatCS: [5.3, 4.31, 2.76, 2.1, 1.3, 0.9]
+relAmps: [0.048, 0.039, 0.004, 0.128, 0.693, 0.087]
+watCS: 4.7
+nFAC: 0

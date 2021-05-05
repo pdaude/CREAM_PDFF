@@ -1,0 +1,3 @@
+files: [./06.mat]
+outDir: ./06_REC
+reScale: 10.

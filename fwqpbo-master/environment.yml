@@ -1,0 +1,12 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3
+  - numpy
+  - pip
+  - pydicom=1.1
+  - scikit-image
+  - scipy
+  - pip:
+    - thinqpbo

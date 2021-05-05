@@ -1,0 +1,3 @@
+files: [./01.mat]
+outDir: ./01_REC
+reScale: 0.0001

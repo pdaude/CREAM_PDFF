@@ -1,0 +1,3 @@
+files: [./15.mat]
+outDir: ./15_REC
+reScale: 1000.
