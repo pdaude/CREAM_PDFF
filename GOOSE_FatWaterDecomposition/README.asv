@@ -1,0 +1,44 @@
+% ReadMe
+
+% Author: Chen Cui; Mathews Jacob
+% Team name: Kongfu Panda
+% Date: 3/15/2013
+
+
+% This toolbox is for the second round competition of 2013 ISMRM Challenge
+% -- Water and fat decomposition algorithm design. 
+
+% This toolbox is an implementation of paper "Fat water decomposition using 
+% GlObally Optimal Surface Estimate algorithm".
+
+% It is designed as form of blackbox with:
+% input: Matlab format, such as "01_KneeAxial.mat" in round 1;
+% output: "OutParams", including fielmap, separated water/fat images, and 
+%         r2starmap in our case. (form in ISMRM W/F Workshop)
+
+% How to run:
+% 1. Open file "test_ChenAndMathews_graphsearch.m";
+% 2. Change the dataname to the one that needs to be processed;
+% 3. Specify which slice in z-direction will be passed into algorithm box;
+%    z-direction is the 3rd dimension in "imDataParas.images".
+% Then you are good to go!
+
+% The structure of the algorithm is in function "GraphSearch.m", which
+% contains five steps:
+% 1. load the data;
+% 2. Set reconstruction parameters;
+% 3. Compute VARPRO residue;
+% 4. Estimate fieldmap by graph search;
+% 5. Retrieve fat and water images;
+
+% The core part of the algorithm is done by
+% "detect_optimal_surface.mexa64". It has been successfully run on 
+% OS: Linux 3.4.11-2.16-desktop x86_64 (GLNXA64),
+% System: openSUSE 12.2 (x86_64)
+% CPU: Intel(R) Xeon(R) CPU W3565 @ 3.20GHz
+% RAM:  23.6 GiB. 
+% However, a miniumum of 8 GiB is enough for the toolbox to execute. 
+
+% We also attached the original "detect_optimal_surface.cpp" file and the
+% graph library "optnet", just in case it has to be recompiled. 
+  
