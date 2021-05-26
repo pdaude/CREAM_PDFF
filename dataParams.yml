@@ -1,0 +1,11 @@
+files: [./challenge/05.mat]
+#dirs: [./data/dicom1, ./data/dicom2]
+outDir: ./out
+reScale: 0.0001 # Rescaling might be needed for datasets with too small/large pixel values
+sliceList: [0, 1, 2, 3]
+echoes: [0, 1, 2]
+temperature: 37
+cropFOV: [64, 128, 64, 92] # [x0, x1, y0, y1]
+reconSlab: 2
+clockwisePrecession: False
+offresCenter: 0.

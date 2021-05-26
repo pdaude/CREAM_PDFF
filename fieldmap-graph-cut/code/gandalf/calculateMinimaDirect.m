@@ -17,7 +17,7 @@ function outParams = calculateMinimaDirect(imDataParams, VARPROparams)
     indexLocalMinimaRescale = zeros(nVoxel_Y, nVoxel_X, nVoxel_Z, nMaxMinimizers);
     nMinimaPerVoxel = zeros(nVoxel_Y, nVoxel_X, nVoxel_Z);
     INFTY = 100000000;
-    gyro = 42.57747892;
+    gyro = VARPROparams.gyro;
     fprintf('Calculating Cost function (VARPRO Hernando)\n');
     options = struct();
     options.nMaxMinimizers = nMaxMinimizers;

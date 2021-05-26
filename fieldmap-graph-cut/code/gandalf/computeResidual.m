@@ -56,7 +56,7 @@ if precessionIsClockwise <= 0
   imDataParams.PrecessionIsClockwise = 1;
 end
 
-gyro = 42.58;
+gyro = algoParams.gyro;
 deltaF = [0 ; gyro*(algoParams.species(2).frequency(:))*(imDataParams.FieldStrength)];
 relAmps = algoParams.species(2).relAmps;
 range_fm = algoParams.range_fm;

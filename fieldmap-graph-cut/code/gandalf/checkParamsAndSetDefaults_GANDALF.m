@@ -35,6 +35,7 @@ function VARPROparamsout = checkParamsAndSetDefaults_GANDALF(imDataParams, algoP
     VARPROparamsout.sampling_stepsize = set_option(algoParams, 'sampling_stepsize', 2);
     VARPROparamsout.nSamplingPeriods = set_option(algoParams, 'nSamplingPeriods', 1);
     VARPROparamsout.airSignalThreshold_percent = set_option(algoParams, 'airSignalThreshold_percent', 5);
+    VARPROparamsout.gyro = set_option(algoParams, 'gyro', 42.57747892);
     VARPROparamsout.period = abs(1/dt);
     
     if isfield(algoParams, 'range_fm')

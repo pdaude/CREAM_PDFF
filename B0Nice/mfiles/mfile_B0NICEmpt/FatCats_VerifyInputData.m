@@ -5,9 +5,12 @@ B0_strength = algoParams.B0_strength; % unit:T
 spin_dir = algoParams.PrecessionIsClockwise;
 TE_seq = algoParams.TE_seq;% unit:s
 %
-model_r = [0.0870 0.6930 0.1280 0.0040 0.0390 0.0480];
-model_f = [-242.7060 -217.1580 -166.0620 -123.9078 -24.9093 38.3220];
-model_f = model_f.*(B0_strength/1.5);
+ 
+model_f = algoParams.species(2).frequency; % Should be in Hz 
+model_r = algoParams.species(2).relAmps; % Should be Normalize
+% model_r = [0.0870 0.6930 0.1280 0.0040 0.0390 0.0480];
+% model_f = [-242.7060 -217.1580 -166.0620 -123.9078 -24.9093 38.3220];
+% model_f = model_f.*(B0_strength/1.5);
 %
 algoParams.model_r = model_r;
 algoParams.model_f = model_f;

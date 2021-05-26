@@ -36,7 +36,7 @@ function [r2starmap,residual] = estimateR2starGivenFieldmap ( imDataParams, algo
 
 range_r2star = algoParams.range_r2star;
 NUM_R2STARS = algoParams.NUM_R2STARS;
-gyro = 42.58;
+gyro = algoParams.gyro;
 deltaF = [0 ; gyro*(algoParams.species(2).frequency(:))*(imDataParams.FieldStrength)];
 relAmps = algoParams.species(2).relAmps;
 images = imDataParams.images;

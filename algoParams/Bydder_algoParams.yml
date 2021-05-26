@@ -1,0 +1,19 @@
+muB : 0.00 # regularization for B0
+muR : 0.01 # regularization for R2*
+nonnegFF : 1 # nonnegative pdff (1=on 0=off)
+nonnegR2 : 1 # nonnegative R2* (1=on 0=off)
+smooth_phase : 1 # smooth phase (1=on 0=off)
+smooth_field : 1 # smooth field (1=on 0=off)
+
+# constants
+#ndb : 2.5 # no. double bonds
+#h2o : 4.7 # water frequency ppm
+filter : ones(3) # low pass filter
+noise : [] # noise std (if available)
+maxit : [10 10 5] # iterations (inner outer linesearch)
+
+# debugging options
+unwrap : 1 # use phase unwrapping of fieldmap (0=off)
+psi : [] # fixed initial psi estimate (for testing)
+display : 0 # useful but slow (0 to turn off)
+none : 0 # quick flag turn off all constraints

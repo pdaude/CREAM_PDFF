@@ -33,7 +33,7 @@
 
 function [amps,remerror] = decomposeGivenFieldMapAndDampings( imDataParams,algoParams,fieldmap,r2starWater,r2starFat )
 
-gyro = 42.58;
+gyro = algoParams.gyro;
 
 
 

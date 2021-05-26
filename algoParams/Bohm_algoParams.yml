@@ -1,0 +1,11 @@
+range_r2star : [0 500] # Range of R2* values
+NUM_R2STARS : 26 # Numbre of R2* values for quantization
+range_fm : [-450 450] # Range of field map values
+NUM_FMS : 401 # Number of field map values to discretize
+
+#
+
+useCUDA : 1
+sampling_stepsize : 2
+nSamplingPeriods : 1 #If range_fm is defined nSamplingPeriods is calculated and vice-versa
+airSignalThreshold_percent : 5

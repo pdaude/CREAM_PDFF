@@ -1,4 +1,4 @@
-function [fatFrac_3D] = FatCats_getSpecies(algoParams)
+function [fatFrac_3D,water_3D,fat_3D] = FatCats_getSpecies(algoParams)
 
 %% Description 
 % This function calculates the water, fat components and fat fraction map
@@ -73,6 +73,8 @@ fatFrac = abs(fat)./(abs(fat) + abs(water));
 %figure, imagesc(fatFrac, [0 1]), title('Fat Fraction'), colormap(gray)
 %
 fatFrac_3D(:,:,index_slice) = fatFrac;
+water_3D(:,:,index_slice) = water;
+fat_3D(:,:,index_slice) = fat;
 %index_slice
 %pause
 end
