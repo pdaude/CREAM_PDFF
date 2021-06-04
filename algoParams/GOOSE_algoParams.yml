@@ -1,0 +1,12 @@
+size_clique : 1 # Size of MRF neighborhood (1 uses an 8-neighborhood, common in 2D)
+range_r2star : [0 30] # Range of R2* values
+NUM_R2STARS : 16 # Numbre of R2* values for quantization
+range_fm_ppm : [-8 8] # Range of field map values (in ppm)
+NUM_FMS : 100 # Number of field map values to discretize which is the num of layers
+NUM_ITERS : 40 # Number of graph cut iterations
+SUBSAMPLE : 1 # Spatial subsampling for field map estimation (for speed) (Not working if different of 1)
+DO_OT : 1 # 0,1 flag to enable optimization transfer descent (final stage of field map estimation)
+LMAP_POWER : 2 # Spatially-varying regularization (2 gives ~ uniformn resolution)
+lambda : 0.05 # Regularization parameter
+LMAP_EXTRA : 0.05 # More smoothing for low-signal regions
+TRY_PERIODIC_RESIDUAL : 0

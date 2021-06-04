@@ -1,0 +1,21 @@
+decoupled_estimation : true # flag for decoupled R2 estimation
+Fibonacci_search : true # flag for Fibonacci search
+B0_smooth_in_stack_direction : false # flag for B0 smooth in stack direction
+multigrid : true # flag for multi-level resolution pyramid
+estimate_R2 : true # flag to estimate R2star
+verbose : true # flag for verbose status messages (default false)
+process_in_3D : false # flag to process in 3D (default true)
+R2star_calibration : true # flag to perform R2* calibration (default false)
+ICM_iterations : 2 # ICM iterations
+num_B0_labels : 100 # number of discretized B0 values
+mu : 10 # regularization parameter
+R2_stepsize : 1 # R2 stepsize in s^-1
+max_R2 : 120 # maximum R2 in s^-1
+max_label_change : 0.1 # 
+fine_R2_stepsize : 1.0 # Fine stepsize for discretization of R2(*) [s^-1] (used in decoupled fine-tuning step)
+coarse_R2_stepsize : 10.0 # Coarse stepsize for discretization of R2(*) [s^-1] (used for joint estimation step, value 0.0 --> Decoupled estimation only
+water_R2 : 0.0 # Water R2 [sec-1]
+fat_R2s : zeros(1,9) # fat peak R2s [s^-1]
+R2star_calibration_max : 800 # max R2* to use for calibration [s^-1] (default 800)
+R2star_calibration_cdf_threshold : 0.98 ## threshold for R2* calibration cumulative density function [0,1] (default 0.98)
+gyro : 42.57747892

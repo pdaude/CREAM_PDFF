@@ -11,8 +11,8 @@ F=reshape(params.F,[1,numel(params.F)]);% [1;nbrVoxels]
 W=reshape(params.W,[1,numel(params.W)]);% [1;nbrVoxels]
 TE=imDataParams.TE; % second
 PHI=zeros(1,numel(params.B0));
-if isfield(params,'PHI')
-   PHI= reshape(params.PHI,[1,numel(params.PHI)]);
+if isfield(params,'PH')
+   PHI= reshape(params.PH,[1,numel(params.PH)]);
 end
 [nx,ny,nz,ncoils,ne]=size(imDataParams.images);
 if ncoils >1 
@@ -38,7 +38,7 @@ B = exp(i*(TE'*complex(2*pi*B0,R2)+repmat(PHI,numel(TE),1)));
 X=[W;F];
 
 YM=B.*(A*X);
-r = reshape(YM-image,ne,nx,ny,nz);
+r = reshape(image-YM,ne,nx,ny,nz);
 sse = squeeze(real(dot(r,r))); % sum of squares error
 YM=reshape(YM,ne,nx,ny,nz);
 YM = permute(YM,[2 3 4 1]);
