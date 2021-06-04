@@ -31,19 +31,18 @@ close all
 
 algoParams=ReadYaml('/home/pdaude/Projet_Python/CREAM_PDFF/algoParams/B0NICE_algoParams.yml');
 
-% General parameters
-algoParams.species(1).name = 'water';
-algoParams.species(1).frequency = 0;
-algoParams.species(1).relAmps = 1;
-algoParams.species(2).name = 'fat';
-algoParams.species(2).frequency = [-3.80, -3.40, -2.60, -1.94, -0.39, 0.60];
-algoParams.species(2).relAmps = [0.087 0.693 0.128 0.004 0.039 0.048];
-algoParams.gyro=42.57747892;
-
+modelParams =ReadYaml('/home/pdaude/Projet_Python/CREAM_PDFF/modelParams/CustommodelParams.yml');
+% Implemented in BONICE
+%algoParams.species(2).frequency =[-242.7060 -217.1580 -166.0620 -123.9078 -24.9093 38.3220];
+%algoParams.species(2).frequency  = algoParams.species(2).frequency *(3/1.5);
 %img=load('Data_test/99.mat');
-img=load('/home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/test_cases/01.mat');
+
+[species ,FWspectrum]= setupModelParams(modelParams);
+algoParams.gyro=FWspectrum.gyro;
+algoParams.species =species;
+
+img=load('/home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/test_cases/04.mat');
 img.imDataParams.images = single(img.imDataParams.images);% Could not be integer
-algoParams.species(2).frequency =[-242.7060 -217.1580 -166.0620 -123.9078 -24.9093 38.3220];
-algoParams.species(2).frequency  = algoParams.species(2).frequency *(3/1.5);
-[params,sse]=B0NICE_main(img.imDataParams,algoParams);
-save('output_B0NICE.mat','params','sse'); 
+
+[params,sse,YM]=B0NICE_main(img.imDataParams,algoParams);
+save('output_B0NICE.mat','params','sse','YM'); 

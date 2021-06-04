@@ -1,9 +1,13 @@
-function [params,sse] = B0NICE_main(imDataParams,algoParams)
+function [params,sse,YM] = B0NICE_main(imDataParams,algoParams)
 
 algoParams.complex_image = imDataParams.images;
 algoParams.B0_strength = imDataParams.FieldStrength; % unit:T
 algoParams.PrecessionIsClockwise = imDataParams.PrecessionIsClockwise;
 algoParams.TE_seq=imDataParams.TE;% unit:s
+
+%Transform fat frequency in ppm  to Hz and shiffted by water frequency
+larmor=algoParams.B0_strength*algoParams.gyro;
+algoParams.species(2).frequency = (algoParams.species(2).frequency-algoParams.species(1).frequency)*larmor;
 
 
 [algoParams] = FatCats_defaultSet4mptB0NICE(algoParams);
