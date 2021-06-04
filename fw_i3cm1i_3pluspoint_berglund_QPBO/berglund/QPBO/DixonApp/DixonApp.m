@@ -22,7 +22,8 @@ switch(computer)
         %error( sprintf('DixonApp is not available for computer type: %s', computer) );
         path_to_DixonApp_executable = sprintf('%s/LINUX/DixonApp_LINUX.exe', DixonApp_parent_folder);
         path_to_DixonApp_libraries  = sprintf('%s/LINUX/lib', DixonApp_parent_folder);
-        system_command_string_prefix = sprintf('export LD_LIBRARY_PATH="%s"; "%s"', path_to_DixonApp_libraries, path_to_DixonApp_executable);
+        system_command_string_prefix = sprintf('export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:"%s"; "%s"', path_to_DixonApp_libraries, path_to_DixonApp_executable);
+        system_command_ldd = sprintf('export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:"%s"', path_to_DixonApp_libraries);
     case {'MACI','MACI64'},
         path_to_DixonApp_executable = sprintf('%s/MAC/DixonApp_MAC.exe', DixonApp_parent_folder);
         path_to_DixonApp_libraries  = sprintf('%s/MAC/lib', DixonApp_parent_folder);

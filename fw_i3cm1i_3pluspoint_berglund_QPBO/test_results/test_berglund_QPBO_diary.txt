@@ -1,0 +1,1151 @@
+fw_i3cm1i_3pluspoint_berglund_QPBO: Available evenly space echoes confirmed with delta TE = 0.001648 seconds
+fw_i3cm1i_3pluspoint_berglund_QPBO: Found 6 of 6 evenly spaced echoes. idx_nTEeven = [ 1 2 3 4 5 6 ]
+fw_i3cm1i_3pluspoint_berglund_QPBO: Performing R2* calibration with initial max R2* = 800.00
+fw_i3cm1i_3pluspoint_berglund_QPBO: R2* Calibration: Cropping slice 1 to save 9.33%
+status = 0
+You are going Platinum, please stand by!
+strings
+vtk_folder = /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+prefix_input = DixonApp_Input
+prefix_output = DixonApp_Output
+flags
+verbose = 1
+estimate_R2 = 1
+decoupled_estimation = 1
+Fibonacci_search = 1
+multigrid = 1
+B0_smooth_in_stack_direction = 0
+floats
+field_strength = 3
+te_used = 0.001436
+dte_used = 0.001648
+water_chemical_shift = 4.7
+mu = 10
+R2_stepsize = 1
+max_R2 = 800
+max_label_change = 0.1
+InplaneOverThroughplaneVoxelsize = 1
+fine_R2_stepsize = 1
+coarse_R2_stepsize = 10
+water_R2 = 0
+integers
+num_B0_labels = 100
+ICM_iterations = 2
+use_num_echoes = 6
+num_fat_peaks = 9
+other
+fat_chemical_shifts = [ 0.9 1.3 1.6 2.02 2.24 2.75 4.2 5.19 5.29 ]
+fat_amps = [ 0.088 0.642 0.058 0.062 0.058 0.006 0.039 0.01 0.037 ]
+fat_R2s = [ 0 0 0 0 0 0 0 0 0 ]
+--- NP QPBO Dixon method parameters ---
+Using multigrid scale pyramid!
+Water chemical shift: 4.7 ppm, R2: 0
+Resonance 1 - chemical shift: 0.9 ppm, realtive amount: 8.8%, R2: 0
+Resonance 2 - chemical shift: 1.3 ppm, realtive amount: 64.2%, R2: 0
+Resonance 3 - chemical shift: 1.6 ppm, realtive amount: 5.8%, R2: 0
+Resonance 4 - chemical shift: 2.02 ppm, realtive amount: 6.2%, R2: 0
+Resonance 5 - chemical shift: 2.24 ppm, realtive amount: 5.8%, R2: 0
+Resonance 6 - chemical shift: 2.75 ppm, realtive amount: 0.6%, R2: 0
+Resonance 7 - chemical shift: 4.2 ppm, realtive amount: 3.9%, R2: 0
+Resonance 8 - chemical shift: 5.19 ppm, realtive amount: 1%, R2: 0
+Resonance 9 - chemical shift: 5.29 ppm, realtive amount: 3.7%, R2: 0
+With estimation of R2*
+mu: 10
+Regularizing with 100 discrete B0 steps in 2 iterations.
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+--- Dixon dataset:  ---
+path: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+source files: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_im.vtk 
+TE1: 1.436 ms
+dTE: 1.648 ms
+number of stacks: 1
+stack direction: 2
+COMBI half-stack? 0
+B0 smooth in stack direction? 0
+inplane/thruplane voxelsize: 1
+field strength: 3
+Level 0: (nx,ny,nz)=191,175,1); (sx,sy,sz)=1,1,1); (dx,dy,dz)=1,1,1)
+Level 1: (nx,ny,nz)=96,88,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=2,2,1)
+Level 2: (nx,ny,nz)=48,44,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=4,4,1)
+Level 3: (nx,ny,nz)=24,22,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=8,8,1)
+Level 4: (nx,ny,nz)=12,11,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=16,16,1)
+Level 5: (nx,ny,nz)=6,6,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=32,32,1)
+Level 6: (nx,ny,nz)=3,3,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=64,64,1)
+Level 7: (nx,ny,nz)=2,2,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=128,128,1)
+Level 8: (nx,ny,nz)=1,1,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=256,256,1)
+Calculating residuals...and R2*:s...DONE in 84 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Solving MRF using QPBO at level 7...DONE in 0 seconds
+Regularizing field map at level 7...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 6...DONE in 0 seconds
+Regularizing field map at level 6...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 5...DONE in 0 seconds
+Regularizing field map at level 5...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 4...DONE in 0 seconds
+Regularizing field map at level 4...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 3...DONE in 0 seconds
+Regularizing field map at level 3...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 2...DONE in 0 seconds
+Regularizing field map at level 2...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 1...DONE in 0 seconds
+Regularizing field map at level 1...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 0...DONE in 0 seconds
+Regularizing field map at level 0...0, 1, ...DONE in 0 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Estimating R2*...DONE in 2 seconds
+Finding least-squares solution...
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+Total time: 88
+
+fw_i3cm1i_3pluspoint_berglund_QPBO: R2* Calibration: Cropping slice 2 to save 9.85%
+status = 0
+You are going Platinum, please stand by!
+strings
+vtk_folder = /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+prefix_input = DixonApp_Input
+prefix_output = DixonApp_Output
+flags
+verbose = 1
+estimate_R2 = 1
+decoupled_estimation = 1
+Fibonacci_search = 1
+multigrid = 1
+B0_smooth_in_stack_direction = 0
+floats
+field_strength = 3
+te_used = 0.001436
+dte_used = 0.001648
+water_chemical_shift = 4.7
+mu = 10
+R2_stepsize = 1
+max_R2 = 800
+max_label_change = 0.1
+InplaneOverThroughplaneVoxelsize = 1
+fine_R2_stepsize = 1
+coarse_R2_stepsize = 10
+water_R2 = 0
+integers
+num_B0_labels = 100
+ICM_iterations = 2
+use_num_echoes = 6
+num_fat_peaks = 9
+other
+fat_chemical_shifts = [ 0.9 1.3 1.6 2.02 2.24 2.75 4.2 5.19 5.29 ]
+fat_amps = [ 0.088 0.642 0.058 0.062 0.058 0.006 0.039 0.01 0.037 ]
+fat_R2s = [ 0 0 0 0 0 0 0 0 0 ]
+--- NP QPBO Dixon method parameters ---
+Using multigrid scale pyramid!
+Water chemical shift: 4.7 ppm, R2: 0
+Resonance 1 - chemical shift: 0.9 ppm, realtive amount: 8.8%, R2: 0
+Resonance 2 - chemical shift: 1.3 ppm, realtive amount: 64.2%, R2: 0
+Resonance 3 - chemical shift: 1.6 ppm, realtive amount: 5.8%, R2: 0
+Resonance 4 - chemical shift: 2.02 ppm, realtive amount: 6.2%, R2: 0
+Resonance 5 - chemical shift: 2.24 ppm, realtive amount: 5.8%, R2: 0
+Resonance 6 - chemical shift: 2.75 ppm, realtive amount: 0.6%, R2: 0
+Resonance 7 - chemical shift: 4.2 ppm, realtive amount: 3.9%, R2: 0
+Resonance 8 - chemical shift: 5.19 ppm, realtive amount: 1%, R2: 0
+Resonance 9 - chemical shift: 5.29 ppm, realtive amount: 3.7%, R2: 0
+With estimation of R2*
+mu: 10
+Regularizing with 100 discrete B0 steps in 2 iterations.
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+--- Dixon dataset:  ---
+path: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+source files: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_im.vtk 
+TE1: 1.436 ms
+dTE: 1.648 ms
+number of stacks: 1
+stack direction: 2
+COMBI half-stack? 0
+B0 smooth in stack direction? 0
+inplane/thruplane voxelsize: 1
+field strength: 3
+Level 0: (nx,ny,nz)=191,174,1); (sx,sy,sz)=1,1,1); (dx,dy,dz)=1,1,1)
+Level 1: (nx,ny,nz)=96,87,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=2,2,1)
+Level 2: (nx,ny,nz)=48,44,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=4,4,1)
+Level 3: (nx,ny,nz)=24,22,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=8,8,1)
+Level 4: (nx,ny,nz)=12,11,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=16,16,1)
+Level 5: (nx,ny,nz)=6,6,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=32,32,1)
+Level 6: (nx,ny,nz)=3,3,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=64,64,1)
+Level 7: (nx,ny,nz)=2,2,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=128,128,1)
+Level 8: (nx,ny,nz)=1,1,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=256,256,1)
+Calculating residuals...and R2*:s...DONE in 81 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Solving MRF using QPBO at level 7...DONE in 0 seconds
+Regularizing field map at level 7...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 6...DONE in 0 seconds
+Regularizing field map at level 6...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 5...DONE in 0 seconds
+Regularizing field map at level 5...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 4...DONE in 0 seconds
+Regularizing field map at level 4...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 3...DONE in 0 seconds
+Regularizing field map at level 3...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 2...DONE in 0 seconds
+Regularizing field map at level 2...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 1...DONE in 0 seconds
+Regularizing field map at level 1...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 0...DONE in 0 seconds
+Regularizing field map at level 0...0, 1, ...DONE in 0 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Estimating R2*...DONE in 1 seconds
+Finding least-squares solution...
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+Total time: 83
+
+fw_i3cm1i_3pluspoint_berglund_QPBO: R2* Calibration: Cropping slice 3 to save 9.38%
+status = 0
+You are going Platinum, please stand by!
+strings
+vtk_folder = /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+prefix_input = DixonApp_Input
+prefix_output = DixonApp_Output
+flags
+verbose = 1
+estimate_R2 = 1
+decoupled_estimation = 1
+Fibonacci_search = 1
+multigrid = 1
+B0_smooth_in_stack_direction = 0
+floats
+field_strength = 3
+te_used = 0.001436
+dte_used = 0.001648
+water_chemical_shift = 4.7
+mu = 10
+R2_stepsize = 1
+max_R2 = 800
+max_label_change = 0.1
+InplaneOverThroughplaneVoxelsize = 1
+fine_R2_stepsize = 1
+coarse_R2_stepsize = 10
+water_R2 = 0
+integers
+num_B0_labels = 100
+ICM_iterations = 2
+use_num_echoes = 6
+num_fat_peaks = 9
+other
+fat_chemical_shifts = [ 0.9 1.3 1.6 2.02 2.24 2.75 4.2 5.19 5.29 ]
+fat_amps = [ 0.088 0.642 0.058 0.062 0.058 0.006 0.039 0.01 0.037 ]
+fat_R2s = [ 0 0 0 0 0 0 0 0 0 ]
+--- NP QPBO Dixon method parameters ---
+Using multigrid scale pyramid!
+Water chemical shift: 4.7 ppm, R2: 0
+Resonance 1 - chemical shift: 0.9 ppm, realtive amount: 8.8%, R2: 0
+Resonance 2 - chemical shift: 1.3 ppm, realtive amount: 64.2%, R2: 0
+Resonance 3 - chemical shift: 1.6 ppm, realtive amount: 5.8%, R2: 0
+Resonance 4 - chemical shift: 2.02 ppm, realtive amount: 6.2%, R2: 0
+Resonance 5 - chemical shift: 2.24 ppm, realtive amount: 5.8%, R2: 0
+Resonance 6 - chemical shift: 2.75 ppm, realtive amount: 0.6%, R2: 0
+Resonance 7 - chemical shift: 4.2 ppm, realtive amount: 3.9%, R2: 0
+Resonance 8 - chemical shift: 5.19 ppm, realtive amount: 1%, R2: 0
+Resonance 9 - chemical shift: 5.29 ppm, realtive amount: 3.7%, R2: 0
+With estimation of R2*
+mu: 10
+Regularizing with 100 discrete B0 steps in 2 iterations.
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+--- Dixon dataset:  ---
+path: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+source files: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_im.vtk 
+TE1: 1.436 ms
+dTE: 1.648 ms
+number of stacks: 1
+stack direction: 2
+COMBI half-stack? 0
+B0 smooth in stack direction? 0
+inplane/thruplane voxelsize: 1
+field strength: 3
+Level 0: (nx,ny,nz)=192,174,1); (sx,sy,sz)=1,1,1); (dx,dy,dz)=1,1,1)
+Level 1: (nx,ny,nz)=96,87,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=2,2,1)
+Level 2: (nx,ny,nz)=48,44,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=4,4,1)
+Level 3: (nx,ny,nz)=24,22,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=8,8,1)
+Level 4: (nx,ny,nz)=12,11,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=16,16,1)
+Level 5: (nx,ny,nz)=6,6,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=32,32,1)
+Level 6: (nx,ny,nz)=3,3,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=64,64,1)
+Level 7: (nx,ny,nz)=2,2,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=128,128,1)
+Level 8: (nx,ny,nz)=1,1,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=256,256,1)
+Calculating residuals...and R2*:s...DONE in 78 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Solving MRF using QPBO at level 7...DONE in 0 seconds
+Regularizing field map at level 7...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 6...DONE in 0 seconds
+Regularizing field map at level 6...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 5...DONE in 0 seconds
+Regularizing field map at level 5...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 4...DONE in 0 seconds
+Regularizing field map at level 4...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 3...DONE in 0 seconds
+Regularizing field map at level 3...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 2...DONE in 0 seconds
+Regularizing field map at level 2...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 1...DONE in 0 seconds
+Regularizing field map at level 1...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 0...DONE in 1 seconds
+Regularizing field map at level 0...0, 1, ...DONE in 0 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Estimating R2*...DONE in 1 seconds
+Finding least-squares solution...
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+Total time: 81
+
+fw_i3cm1i_3pluspoint_berglund_QPBO: R2* Calibration: Cropping slice 4 to save 11.40%
+status = 0
+You are going Platinum, please stand by!
+strings
+vtk_folder = /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+prefix_input = DixonApp_Input
+prefix_output = DixonApp_Output
+flags
+verbose = 1
+estimate_R2 = 1
+decoupled_estimation = 1
+Fibonacci_search = 1
+multigrid = 1
+B0_smooth_in_stack_direction = 0
+floats
+field_strength = 3
+te_used = 0.001436
+dte_used = 0.001648
+water_chemical_shift = 4.7
+mu = 10
+R2_stepsize = 1
+max_R2 = 800
+max_label_change = 0.1
+InplaneOverThroughplaneVoxelsize = 1
+fine_R2_stepsize = 1
+coarse_R2_stepsize = 10
+water_R2 = 0
+integers
+num_B0_labels = 100
+ICM_iterations = 2
+use_num_echoes = 6
+num_fat_peaks = 9
+other
+fat_chemical_shifts = [ 0.9 1.3 1.6 2.02 2.24 2.75 4.2 5.19 5.29 ]
+fat_amps = [ 0.088 0.642 0.058 0.062 0.058 0.006 0.039 0.01 0.037 ]
+fat_R2s = [ 0 0 0 0 0 0 0 0 0 ]
+--- NP QPBO Dixon method parameters ---
+Using multigrid scale pyramid!
+Water chemical shift: 4.7 ppm, R2: 0
+Resonance 1 - chemical shift: 0.9 ppm, realtive amount: 8.8%, R2: 0
+Resonance 2 - chemical shift: 1.3 ppm, realtive amount: 64.2%, R2: 0
+Resonance 3 - chemical shift: 1.6 ppm, realtive amount: 5.8%, R2: 0
+Resonance 4 - chemical shift: 2.02 ppm, realtive amount: 6.2%, R2: 0
+Resonance 5 - chemical shift: 2.24 ppm, realtive amount: 5.8%, R2: 0
+Resonance 6 - chemical shift: 2.75 ppm, realtive amount: 0.6%, R2: 0
+Resonance 7 - chemical shift: 4.2 ppm, realtive amount: 3.9%, R2: 0
+Resonance 8 - chemical shift: 5.19 ppm, realtive amount: 1%, R2: 0
+Resonance 9 - chemical shift: 5.29 ppm, realtive amount: 3.7%, R2: 0
+With estimation of R2*
+mu: 10
+Regularizing with 100 discrete B0 steps in 2 iterations.
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+--- Dixon dataset:  ---
+path: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+source files: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_im.vtk 
+TE1: 1.436 ms
+dTE: 1.648 ms
+number of stacks: 1
+stack direction: 2
+COMBI half-stack? 0
+B0 smooth in stack direction? 0
+inplane/thruplane voxelsize: 1
+field strength: 3
+Level 0: (nx,ny,nz)=191,171,1); (sx,sy,sz)=1,1,1); (dx,dy,dz)=1,1,1)
+Level 1: (nx,ny,nz)=96,86,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=2,2,1)
+Level 2: (nx,ny,nz)=48,43,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=4,4,1)
+Level 3: (nx,ny,nz)=24,22,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=8,8,1)
+Level 4: (nx,ny,nz)=12,11,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=16,16,1)
+Level 5: (nx,ny,nz)=6,6,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=32,32,1)
+Level 6: (nx,ny,nz)=3,3,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=64,64,1)
+Level 7: (nx,ny,nz)=2,2,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=128,128,1)
+Level 8: (nx,ny,nz)=1,1,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=256,256,1)
+Calculating residuals...and R2*:s...DONE in 83 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Solving MRF using QPBO at level 7...DONE in 0 seconds
+Regularizing field map at level 7...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 6...DONE in 0 seconds
+Regularizing field map at level 6...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 5...DONE in 0 seconds
+Regularizing field map at level 5...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 4...DONE in 0 seconds
+Regularizing field map at level 4...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 3...DONE in 0 seconds
+Regularizing field map at level 3...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 2...DONE in 0 seconds
+Regularizing field map at level 2...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 1...DONE in 0 seconds
+Regularizing field map at level 1...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 0...DONE in 0 seconds
+Regularizing field map at level 0...0, 1, ...DONE in 0 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Estimating R2*...DONE in 2 seconds
+Finding least-squares solution...
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+Total time: 85
+
+fw_i3cm1i_3pluspoint_berglund_QPBO: R2* Calibration: successfully satisified R2star_calibration_cdf_threshold = 0.98
+fw_i3cm1i_3pluspoint_berglund_QPBO: R2* Calibration: GLOBAL_maxR2  = 211.00
+fw_i3cm1i_3pluspoint_berglund_QPBO: Cropping slice 1 to save 9.33%
+status = 0
+You are going Platinum, please stand by!
+strings
+vtk_folder = /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+prefix_input = DixonApp_Input
+prefix_output = DixonApp_Output
+flags
+verbose = 1
+estimate_R2 = 1
+decoupled_estimation = 1
+Fibonacci_search = 1
+multigrid = 1
+B0_smooth_in_stack_direction = 0
+floats
+field_strength = 3
+te_used = 0.001436
+dte_used = 0.001648
+water_chemical_shift = 4.7
+mu = 10
+R2_stepsize = 1
+max_R2 = 211
+max_label_change = 0.1
+InplaneOverThroughplaneVoxelsize = 1
+fine_R2_stepsize = 1
+coarse_R2_stepsize = 10
+water_R2 = 0
+integers
+num_B0_labels = 100
+ICM_iterations = 2
+use_num_echoes = 6
+num_fat_peaks = 9
+other
+fat_chemical_shifts = [ 0.9 1.3 1.6 2.02 2.24 2.75 4.2 5.19 5.29 ]
+fat_amps = [ 0.088 0.642 0.058 0.062 0.058 0.006 0.039 0.01 0.037 ]
+fat_R2s = [ 0 0 0 0 0 0 0 0 0 ]
+--- NP QPBO Dixon method parameters ---
+Using multigrid scale pyramid!
+Water chemical shift: 4.7 ppm, R2: 0
+Resonance 1 - chemical shift: 0.9 ppm, realtive amount: 8.8%, R2: 0
+Resonance 2 - chemical shift: 1.3 ppm, realtive amount: 64.2%, R2: 0
+Resonance 3 - chemical shift: 1.6 ppm, realtive amount: 5.8%, R2: 0
+Resonance 4 - chemical shift: 2.02 ppm, realtive amount: 6.2%, R2: 0
+Resonance 5 - chemical shift: 2.24 ppm, realtive amount: 5.8%, R2: 0
+Resonance 6 - chemical shift: 2.75 ppm, realtive amount: 0.6%, R2: 0
+Resonance 7 - chemical shift: 4.2 ppm, realtive amount: 3.9%, R2: 0
+Resonance 8 - chemical shift: 5.19 ppm, realtive amount: 1%, R2: 0
+Resonance 9 - chemical shift: 5.29 ppm, realtive amount: 3.7%, R2: 0
+With estimation of R2*
+mu: 10
+Regularizing with 100 discrete B0 steps in 2 iterations.
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+--- Dixon dataset:  ---
+path: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+source files: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_im.vtk 
+TE1: 1.436 ms
+dTE: 1.648 ms
+number of stacks: 1
+stack direction: 2
+COMBI half-stack? 0
+B0 smooth in stack direction? 0
+inplane/thruplane voxelsize: 1
+field strength: 3
+Level 0: (nx,ny,nz)=191,175,1); (sx,sy,sz)=1,1,1); (dx,dy,dz)=1,1,1)
+Level 1: (nx,ny,nz)=96,88,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=2,2,1)
+Level 2: (nx,ny,nz)=48,44,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=4,4,1)
+Level 3: (nx,ny,nz)=24,22,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=8,8,1)
+Level 4: (nx,ny,nz)=12,11,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=16,16,1)
+Level 5: (nx,ny,nz)=6,6,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=32,32,1)
+Level 6: (nx,ny,nz)=3,3,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=64,64,1)
+Level 7: (nx,ny,nz)=2,2,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=128,128,1)
+Level 8: (nx,ny,nz)=1,1,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=256,256,1)
+Calculating residuals...and R2*:s...DONE in 64 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Solving MRF using QPBO at level 7...DONE in 0 seconds
+Regularizing field map at level 7...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 6...DONE in 0 seconds
+Regularizing field map at level 6...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 5...DONE in 0 seconds
+Regularizing field map at level 5...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 4...DONE in 0 seconds
+Regularizing field map at level 4...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 3...DONE in 0 seconds
+Regularizing field map at level 3...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 2...DONE in 0 seconds
+Regularizing field map at level 2...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 1...DONE in 0 seconds
+Regularizing field map at level 1...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 0...DONE in 0 seconds
+Regularizing field map at level 0...0, 1, ...DONE in 0 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Estimating R2*...DONE in 1 seconds
+Finding least-squares solution...
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+Total time: 65
+
+fw_i3cm1i_3pluspoint_berglund_QPBO: Cropping slice 2 to save 9.85%
+status = 0
+You are going Platinum, please stand by!
+strings
+vtk_folder = /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+prefix_input = DixonApp_Input
+prefix_output = DixonApp_Output
+flags
+verbose = 1
+estimate_R2 = 1
+decoupled_estimation = 1
+Fibonacci_search = 1
+multigrid = 1
+B0_smooth_in_stack_direction = 0
+floats
+field_strength = 3
+te_used = 0.001436
+dte_used = 0.001648
+water_chemical_shift = 4.7
+mu = 10
+R2_stepsize = 1
+max_R2 = 211
+max_label_change = 0.1
+InplaneOverThroughplaneVoxelsize = 1
+fine_R2_stepsize = 1
+coarse_R2_stepsize = 10
+water_R2 = 0
+integers
+num_B0_labels = 100
+ICM_iterations = 2
+use_num_echoes = 6
+num_fat_peaks = 9
+other
+fat_chemical_shifts = [ 0.9 1.3 1.6 2.02 2.24 2.75 4.2 5.19 5.29 ]
+fat_amps = [ 0.088 0.642 0.058 0.062 0.058 0.006 0.039 0.01 0.037 ]
+fat_R2s = [ 0 0 0 0 0 0 0 0 0 ]
+--- NP QPBO Dixon method parameters ---
+Using multigrid scale pyramid!
+Water chemical shift: 4.7 ppm, R2: 0
+Resonance 1 - chemical shift: 0.9 ppm, realtive amount: 8.8%, R2: 0
+Resonance 2 - chemical shift: 1.3 ppm, realtive amount: 64.2%, R2: 0
+Resonance 3 - chemical shift: 1.6 ppm, realtive amount: 5.8%, R2: 0
+Resonance 4 - chemical shift: 2.02 ppm, realtive amount: 6.2%, R2: 0
+Resonance 5 - chemical shift: 2.24 ppm, realtive amount: 5.8%, R2: 0
+Resonance 6 - chemical shift: 2.75 ppm, realtive amount: 0.6%, R2: 0
+Resonance 7 - chemical shift: 4.2 ppm, realtive amount: 3.9%, R2: 0
+Resonance 8 - chemical shift: 5.19 ppm, realtive amount: 1%, R2: 0
+Resonance 9 - chemical shift: 5.29 ppm, realtive amount: 3.7%, R2: 0
+With estimation of R2*
+mu: 10
+Regularizing with 100 discrete B0 steps in 2 iterations.
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+--- Dixon dataset:  ---
+path: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+source files: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_im.vtk 
+TE1: 1.436 ms
+dTE: 1.648 ms
+number of stacks: 1
+stack direction: 2
+COMBI half-stack? 0
+B0 smooth in stack direction? 0
+inplane/thruplane voxelsize: 1
+field strength: 3
+Level 0: (nx,ny,nz)=191,174,1); (sx,sy,sz)=1,1,1); (dx,dy,dz)=1,1,1)
+Level 1: (nx,ny,nz)=96,87,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=2,2,1)
+Level 2: (nx,ny,nz)=48,44,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=4,4,1)
+Level 3: (nx,ny,nz)=24,22,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=8,8,1)
+Level 4: (nx,ny,nz)=12,11,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=16,16,1)
+Level 5: (nx,ny,nz)=6,6,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=32,32,1)
+Level 6: (nx,ny,nz)=3,3,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=64,64,1)
+Level 7: (nx,ny,nz)=2,2,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=128,128,1)
+Level 8: (nx,ny,nz)=1,1,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=256,256,1)
+Calculating residuals...and R2*:s...DONE in 61 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Solving MRF using QPBO at level 7...DONE in 0 seconds
+Regularizing field map at level 7...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 6...DONE in 0 seconds
+Regularizing field map at level 6...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 5...DONE in 0 seconds
+Regularizing field map at level 5...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 4...DONE in 0 seconds
+Regularizing field map at level 4...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 3...DONE in 0 seconds
+Regularizing field map at level 3...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 2...DONE in 0 seconds
+Regularizing field map at level 2...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 1...DONE in 0 seconds
+Regularizing field map at level 1...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 0...DONE in 0 seconds
+Regularizing field map at level 0...0, 1, ...DONE in 0 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Estimating R2*...DONE in 1 seconds
+Finding least-squares solution...
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+Total time: 63
+
+fw_i3cm1i_3pluspoint_berglund_QPBO: Cropping slice 3 to save 9.38%
+status = 0
+You are going Platinum, please stand by!
+strings
+vtk_folder = /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+prefix_input = DixonApp_Input
+prefix_output = DixonApp_Output
+flags
+verbose = 1
+estimate_R2 = 1
+decoupled_estimation = 1
+Fibonacci_search = 1
+multigrid = 1
+B0_smooth_in_stack_direction = 0
+floats
+field_strength = 3
+te_used = 0.001436
+dte_used = 0.001648
+water_chemical_shift = 4.7
+mu = 10
+R2_stepsize = 1
+max_R2 = 211
+max_label_change = 0.1
+InplaneOverThroughplaneVoxelsize = 1
+fine_R2_stepsize = 1
+coarse_R2_stepsize = 10
+water_R2 = 0
+integers
+num_B0_labels = 100
+ICM_iterations = 2
+use_num_echoes = 6
+num_fat_peaks = 9
+other
+fat_chemical_shifts = [ 0.9 1.3 1.6 2.02 2.24 2.75 4.2 5.19 5.29 ]
+fat_amps = [ 0.088 0.642 0.058 0.062 0.058 0.006 0.039 0.01 0.037 ]
+fat_R2s = [ 0 0 0 0 0 0 0 0 0 ]
+--- NP QPBO Dixon method parameters ---
+Using multigrid scale pyramid!
+Water chemical shift: 4.7 ppm, R2: 0
+Resonance 1 - chemical shift: 0.9 ppm, realtive amount: 8.8%, R2: 0
+Resonance 2 - chemical shift: 1.3 ppm, realtive amount: 64.2%, R2: 0
+Resonance 3 - chemical shift: 1.6 ppm, realtive amount: 5.8%, R2: 0
+Resonance 4 - chemical shift: 2.02 ppm, realtive amount: 6.2%, R2: 0
+Resonance 5 - chemical shift: 2.24 ppm, realtive amount: 5.8%, R2: 0
+Resonance 6 - chemical shift: 2.75 ppm, realtive amount: 0.6%, R2: 0
+Resonance 7 - chemical shift: 4.2 ppm, realtive amount: 3.9%, R2: 0
+Resonance 8 - chemical shift: 5.19 ppm, realtive amount: 1%, R2: 0
+Resonance 9 - chemical shift: 5.29 ppm, realtive amount: 3.7%, R2: 0
+With estimation of R2*
+mu: 10
+Regularizing with 100 discrete B0 steps in 2 iterations.
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+--- Dixon dataset:  ---
+path: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+source files: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_im.vtk 
+TE1: 1.436 ms
+dTE: 1.648 ms
+number of stacks: 1
+stack direction: 2
+COMBI half-stack? 0
+B0 smooth in stack direction? 0
+inplane/thruplane voxelsize: 1
+field strength: 3
+Level 0: (nx,ny,nz)=192,174,1); (sx,sy,sz)=1,1,1); (dx,dy,dz)=1,1,1)
+Level 1: (nx,ny,nz)=96,87,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=2,2,1)
+Level 2: (nx,ny,nz)=48,44,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=4,4,1)
+Level 3: (nx,ny,nz)=24,22,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=8,8,1)
+Level 4: (nx,ny,nz)=12,11,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=16,16,1)
+Level 5: (nx,ny,nz)=6,6,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=32,32,1)
+Level 6: (nx,ny,nz)=3,3,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=64,64,1)
+Level 7: (nx,ny,nz)=2,2,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=128,128,1)
+Level 8: (nx,ny,nz)=1,1,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=256,256,1)
+Calculating residuals...and R2*:s...DONE in 61 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Solving MRF using QPBO at level 7...DONE in 0 seconds
+Regularizing field map at level 7...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 6...DONE in 0 seconds
+Regularizing field map at level 6...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 5...DONE in 0 seconds
+Regularizing field map at level 5...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 4...DONE in 0 seconds
+Regularizing field map at level 4...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 3...DONE in 0 seconds
+Regularizing field map at level 3...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 2...DONE in 0 seconds
+Regularizing field map at level 2...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 1...DONE in 0 seconds
+Regularizing field map at level 1...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 0...DONE in 0 seconds
+Regularizing field map at level 0...0, 1, ...DONE in 0 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Estimating R2*...DONE in 1 seconds
+Finding least-squares solution...
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+Total time: 63
+
+fw_i3cm1i_3pluspoint_berglund_QPBO: Cropping slice 4 to save 11.40%
+status = 0
+You are going Platinum, please stand by!
+strings
+vtk_folder = /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+prefix_input = DixonApp_Input
+prefix_output = DixonApp_Output
+flags
+verbose = 1
+estimate_R2 = 1
+decoupled_estimation = 1
+Fibonacci_search = 1
+multigrid = 1
+B0_smooth_in_stack_direction = 0
+floats
+field_strength = 3
+te_used = 0.001436
+dte_used = 0.001648
+water_chemical_shift = 4.7
+mu = 10
+R2_stepsize = 1
+max_R2 = 211
+max_label_change = 0.1
+InplaneOverThroughplaneVoxelsize = 1
+fine_R2_stepsize = 1
+coarse_R2_stepsize = 10
+water_R2 = 0
+integers
+num_B0_labels = 100
+ICM_iterations = 2
+use_num_echoes = 6
+num_fat_peaks = 9
+other
+fat_chemical_shifts = [ 0.9 1.3 1.6 2.02 2.24 2.75 4.2 5.19 5.29 ]
+fat_amps = [ 0.088 0.642 0.058 0.062 0.058 0.006 0.039 0.01 0.037 ]
+fat_R2s = [ 0 0 0 0 0 0 0 0 0 ]
+--- NP QPBO Dixon method parameters ---
+Using multigrid scale pyramid!
+Water chemical shift: 4.7 ppm, R2: 0
+Resonance 1 - chemical shift: 0.9 ppm, realtive amount: 8.8%, R2: 0
+Resonance 2 - chemical shift: 1.3 ppm, realtive amount: 64.2%, R2: 0
+Resonance 3 - chemical shift: 1.6 ppm, realtive amount: 5.8%, R2: 0
+Resonance 4 - chemical shift: 2.02 ppm, realtive amount: 6.2%, R2: 0
+Resonance 5 - chemical shift: 2.24 ppm, realtive amount: 5.8%, R2: 0
+Resonance 6 - chemical shift: 2.75 ppm, realtive amount: 0.6%, R2: 0
+Resonance 7 - chemical shift: 4.2 ppm, realtive amount: 3.9%, R2: 0
+Resonance 8 - chemical shift: 5.19 ppm, realtive amount: 1%, R2: 0
+Resonance 9 - chemical shift: 5.29 ppm, realtive amount: 3.7%, R2: 0
+With estimation of R2*
+mu: 10
+Regularizing with 100 discrete B0 steps in 2 iterations.
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+--- Dixon dataset:  ---
+path: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk
+source files: /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_re.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0001_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0002_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0003_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0004_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0005_im.vtk /home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/berglund/QPBO/DixonApp/vtk/DixonApp_Input_echo0006_im.vtk 
+TE1: 1.436 ms
+dTE: 1.648 ms
+number of stacks: 1
+stack direction: 2
+COMBI half-stack? 0
+B0 smooth in stack direction? 0
+inplane/thruplane voxelsize: 1
+field strength: 3
+Level 0: (nx,ny,nz)=191,171,1); (sx,sy,sz)=1,1,1); (dx,dy,dz)=1,1,1)
+Level 1: (nx,ny,nz)=96,86,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=2,2,1)
+Level 2: (nx,ny,nz)=48,43,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=4,4,1)
+Level 3: (nx,ny,nz)=24,22,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=8,8,1)
+Level 4: (nx,ny,nz)=12,11,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=16,16,1)
+Level 5: (nx,ny,nz)=6,6,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=32,32,1)
+Level 6: (nx,ny,nz)=3,3,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=64,64,1)
+Level 7: (nx,ny,nz)=2,2,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=128,128,1)
+Level 8: (nx,ny,nz)=1,1,1); (sx,sy,sz)=2,2,1); (dx,dy,dz)=256,256,1)
+Calculating residuals...and R2*:s...DONE in 59 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Solving MRF using QPBO at level 7...DONE in 0 seconds
+Regularizing field map at level 7...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 6...DONE in 0 seconds
+Regularizing field map at level 6...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 5...DONE in 0 seconds
+Regularizing field map at level 5...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 4...DONE in 0 seconds
+Regularizing field map at level 4...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 3...DONE in 0 seconds
+Regularizing field map at level 3...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 2...DONE in 1 seconds
+Regularizing field map at level 2...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 1...DONE in 0 seconds
+Regularizing field map at level 1...0, 1, ...DONE in 0 seconds
+Solving MRF using QPBO at level 0...DONE in 0 seconds
+Regularizing field map at level 0...0, 1, ...DONE in 0 seconds
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+Estimating R2*...DONE in 0 seconds
+Finding least-squares solution...
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+pt_error exception: (Warning)
+Attempt to set name(const string) on a widget-less data object
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+save_to_VTK_file...
+Total time: 60
+
+COMPLETED CASE 04
+Completed test_berglund_QPBO in 599.37 seconds

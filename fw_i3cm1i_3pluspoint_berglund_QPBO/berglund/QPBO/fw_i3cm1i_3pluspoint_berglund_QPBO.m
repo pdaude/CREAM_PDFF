@@ -331,8 +331,8 @@ try
 catch
     ampW = 1.0;
 end
-gamma_Hz_per_Tesla = 42.577481e6;
-deltaF = [0 ; gamma_Hz_per_Tesla/1e6*(algoParams_DECOMPOSE.species(2).frequency(:) - algoParams_DECOMPOSE.species(1).frequency(1))*(imDataParams.FieldStrength)];
+gamma_MHz_per_Tesla = algoParams.gyro;
+deltaF = [0 ; gamma_MHz_per_Tesla*(algoParams_DECOMPOSE.species(2).frequency(:) - algoParams_DECOMPOSE.species(1).frequency(1))*(imDataParams.FieldStrength)];
 relAmps = algoParams_DECOMPOSE.species(2).relAmps;
 t = imDataParams.TE(:); % uses all echoes!
 relAmps = reshape(relAmps,1,[]);  
@@ -750,6 +750,11 @@ validParams = 0;
     if ~isfield(algoParams,'R2star_calibration_cdf_threshold'),
         algoParams.R2star_calibration_cdf_threshold  = 0.98;
     end        
+    
+    if ~isfield(algoParams,'gyro'),
+        algoParams.gyro = 42.57747892;
+    end 
+    
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
     validParams = 1;
