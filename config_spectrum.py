@@ -18,9 +18,6 @@ def readConfig(file, section):
 def defaultModelParams():
     defaults = {
         'model':'Berglund2012',
-        'CL': 17.4,
-        'P2U': 0.2,
-        'UD': 2.6,
         'watCS':4.7,
         'gyro': 42.577478
     }
