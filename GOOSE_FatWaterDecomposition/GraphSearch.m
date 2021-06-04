@@ -7,7 +7,8 @@ x = size(imDataParams.images, 1);
 y = size(imDataParams.images, 2);
 T = imDataParams.TE;
 Numlayers = 100; % number of layers in the graph
-gyro = 42.58;
+algoParams.gyro=42.57747892;
+gyro = algoParams.gyro%42.58;
 freqRange = gyro*imDataParams.FieldStrength*8; %search range is [-8ppm, 8ppm];
 t = linspace(-freqRange, freqRange, Numlayers);
 gridspacing = t(2)-t(1);
@@ -20,6 +21,7 @@ algoParams.species(1).relAmps = 1;
 algoParams.species(2).name = 'fat';
 algoParams.species(2).frequency = [-3.80, -3.40, -2.60, -1.94, -0.39, 0.60];
 algoParams.species(2).relAmps = [0.087 0.693 0.128 0.004 0.039 0.048];
+algoParams.gyro=42.57747892;
 
 % Algorithm-specific parameters
 algoParams.gridsize = round(gridspacing);

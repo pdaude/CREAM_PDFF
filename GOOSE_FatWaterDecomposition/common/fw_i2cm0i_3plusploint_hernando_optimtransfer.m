@@ -59,7 +59,7 @@ if imDataParams.PrecessionIsClockwise <= 0
 end
 
 % Get recon parameters and images
-gyro = 42.58;
+gyro = algoParams.gyro%42.58;
 deltaF = [0 ; gyro*(algoParams.species(2).frequency(:))*(imDataParams.FieldStrength)];
 relAmps = algoParams.species(2).relAmps;
 range_fm = algoParams.range_fm;
