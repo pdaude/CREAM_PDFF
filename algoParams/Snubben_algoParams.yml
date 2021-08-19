@@ -1,7 +1,7 @@
-nR2 : 145 #This is the number of different values of R2* that will be considered
-R2max : 144.0 #This is the maximal value of R2* that will be considered, Unit: s^-1
+nR2 : 101 #This is the number of different values of R2* that will be considered
+R2max : 100.0 #This is the maximal value of R2* that will be considered, Unit: s^-1
 R2cand : 40. #This is the initial guess of R2*, Unit: s^-1
-nB0 : 100 #This is the number of off-resonance frequencies that will be considered
+nB0 : 251 #This is the number of off-resonance frequencies that will be considered
 use3D : 1 #set to 0 for 2D, 1 for 3D
 nICMiter : 10 #Number of ICM iterations
 maxICMupdate : 10 #Restriction of the range of the values ICM will consider in each iteration round (nB0/10)

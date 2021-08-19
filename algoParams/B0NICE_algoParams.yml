@@ -7,7 +7,7 @@ th4STAS: 40 #prctile slice by slice
 unwrap_mode: 2 # 2 for 2D PUROR; 3 for 3D PUROR
 #For magnitude fitting
 FF_trl: [0.0 0.15 0.25 0.5 0.75 0.85 1.0]
-R2star_pt: 0:1:300 #unit: Hz
+R2star_pt: 0:1:100 #unit: Hz
 #For phase error correction
 th4RegionDivision: pi/2;
 minAreaUsingPhaseGradient: 20

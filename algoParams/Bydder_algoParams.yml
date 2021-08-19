@@ -1,9 +1,9 @@
 muB : 0.00 # regularization for B0
-muR : 0.01 # regularization for R2*
+muR : 0.00 # regularization for R2*
 nonnegFF : 1 # nonnegative pdff (1=on 0=off)
 nonnegR2 : 1 # nonnegative R2* (1=on 0=off)
-smooth_phase : 1 # smooth phase (1=on 0=off)
-smooth_field : 1 # smooth field (1=on 0=off)
+smooth_phase : 0 # smooth phase (1=on 0=off)
+smooth_field : 0 # smooth field (1=on 0=off)
 
 # constants
 #ndb : 2.5 # no. double bonds
