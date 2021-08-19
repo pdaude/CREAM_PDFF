@@ -2,7 +2,8 @@ import configparser
 import DICOM
 import MATLAB
 import numpy as np
-from pathlib import Path
+import os.path as op
+import os 
 import yaml
 
 
@@ -39,7 +40,8 @@ def setupAlgoParams(aPar, N, nFAC=0):
         ('multiScale', False),
         ('use3D', False),
         ('magnitudeDiscrimination', True),
-        ('offresPenalty', 0.)
+        ('offresPenalty', 0.),
+        ('R2min',0)
 
     ]
 
@@ -65,7 +67,7 @@ def setupAlgoParams(aPar, N, nFAC=0):
         aPar['realEstimates'] = False
 
     if aPar['nR2'] > 1:
-        aPar['R2step'] = aPar['R2max']/(aPar['nR2']-1)  # [sec-1]
+        aPar['R2step'] = (aPar['R2max']-aPar['R2min'])/(aPar['nR2']-1)  # [sec-1]
     else:
         aPar['R2step'] = 1.0  # [sec-1]
     
@@ -131,65 +133,66 @@ def getFACalphas(CL=None, P2U=None, UD=None):
 
 
 # Update model parameter object mPar and set default parameters
-def setupModelParams(mPar, clockwisePrecession=False, temperature=None):
+# Not used in CREAM due to more generic spectrum models
+# def setupModelParams(mPar, clockwisePrecession=False, temperature=None):
 
-    defaults = [
-        ('fatCS', [1.3]),
-        ('nFAC', 0),
-        ('CL', 17.4), # Derived from Lundbom 2010
-        ('P2U', 0.2),  # Derived from Lundbom 2010
-        ('UD', 2.6),  # Derived from Lundbom 2010
-    ]
+#     defaults = [
+#         ('fatCS', [1.3]),
+#         ('nFAC', 0),
+#         ('CL', 17.4), # Derived from Lundbom 2010
+#         ('P2U', 0.2),  # Derived from Lundbom 2010
+#         ('UD', 2.6),  # Derived from Lundbom 2010
+#     ]
 
-    for param, defval in defaults:
-        if param not in mPar:
-            mPar[param] = defval
+#     for param, defval in defaults:
+#         if param not in mPar:
+#             mPar[param] = defval
 
-    if 'watCS' not in mPar:
-        if temperature: # Temperature dependence according to Hernando 2014
-            mPar['watCS'] = 1.3 + 3.748 -.01085 * temperature # Temp in [°C]
-        else:
-            mPar['watCS'] = 4.7
+#     if 'watCS' not in mPar:
+#         if temperature: # Temperature dependence according to Hernando 2014
+#             mPar['watCS'] = 1.3 + 3.748 -.01085 * temperature # Temp in [°C]
+#         else:
+#             mPar['watCS'] = 4.7
     
-    mPar['CS'] = np.array([mPar['watCS']] + mPar['fatCS'], dtype=np.float32)
+#     mPar['CS'] = np.array([mPar['watCS']] + mPar['fatCS'], dtype=np.float32)
     
-    if clockwisePrecession:
-        mPar['CS'] *= -1
+#     if clockwisePrecession:
+#         mPar['CS'] *= -1
     
-    mPar['P'] = len(mPar['CS'])
+#     mPar['P'] = len(mPar['CS'])
 
-    if mPar['nFAC'] > 0 and mPar['P'] != 11:
-        raise Exception(
-            'FAC excpects exactly one water and ten triglyceride resonances')
+#     if mPar['nFAC'] > 0 and mPar['P'] != 11:
+#         raise Exception(
+#             'FAC excpects exactly one water and ten triglyceride resonances')
     
-    mPar['M'] = 2+mPar['nFAC']
+#     mPar['M'] = 2+mPar['nFAC']
 
-    if mPar['nFAC'] == 0:
-        mPar['alpha'] = np.zeros([mPar['M'], mPar['P']], dtype=np.float32)
-        mPar['alpha'][0, 0] = 1.
-        if 'relAmps' in mPar:
-            for (p, a) in enumerate(mPar['relAmps']):
-                mPar['alpha'][1, p+1] = float(a)
-        else:
-            for p in range(1, mPar['P']):
-                mPar['alpha'][1, p] = float(1/len(fatCS))
-    elif mPar['nFAC'] == 1:
-        mPar['alpha'] = getFACalphas(mPar['CL'], mPar['P2U'])
-    elif mPar['nFAC'] == 2:
-        mPar['alpha'] = getFACalphas(mPar['CL'])
-    elif mPar['nFAC'] == 3:
-        mPar['alpha'] = getFACalphas()
-    else:
-        raise Exception('Unknown number of FAC parameters: {}'
-                        .format(mPar['nFAC']))
+#     if mPar['nFAC'] == 0:
+#         mPar['alpha'] = np.zeros([mPar['M'], mPar['P']], dtype=np.float32)
+#         mPar['alpha'][0, 0] = 1.
+#         if 'relAmps' in mPar:
+#             for (p, a) in enumerate(mPar['relAmps']):
+#                 mPar['alpha'][1, p+1] = float(a)
+#         else:
+#             for p in range(1, mPar['P']):
+#                 mPar['alpha'][1, p] = float(1/len(fatCS))
+#     elif mPar['nFAC'] == 1:
+#         mPar['alpha'] = getFACalphas(mPar['CL'], mPar['P2U'])
+#     elif mPar['nFAC'] == 2:
+#         mPar['alpha'] = getFACalphas(mPar['CL'])
+#     elif mPar['nFAC'] == 3:
+#         mPar['alpha'] = getFACalphas()
+#     else:
+#         raise Exception('Unknown number of FAC parameters: {}'
+#                         .format(mPar['nFAC']))
 
-    # For Fatty Acid Composition, create modelParams for two passes: mPar and mPar['pass2']
-    # First pass: use standard fat-water separation to determine B0 and R2*
-    # Second pass: do the Fatty Acid Composition
-    if mPar['nFAC'] > 0: 
-        mPar['pass2'] = dict(mPar) # copy mPar into pass 2, then modify pass 1
-        mPar['alpha'] = getFACalphas(mPar['CL'], mPar['P2U'], mPar['UD'])
-        mPar['M'] = mPar['alpha'].shape[0]
+#     # For Fatty Acid Composition, create modelParams for two passes: mPar and mPar['pass2']
+#     # First pass: use standard fat-water separation to determine B0 and R2*
+#     # Second pass: do the Fatty Acid Composition
+#     if mPar['nFAC'] > 0: 
+#         mPar['pass2'] = dict(mPar) # copy mPar into pass 2, then modify pass 1
+#         mPar['alpha'] = getFACalphas(mPar['CL'], mPar['P2U'], mPar['UD'])
+#         mPar['M'] = mPar['alpha'].shape[0]
 
 
 # group slices in sliceList in slabs of reconSlab contiguous slices
@@ -208,57 +211,81 @@ def getSlabs(sliceList, reconSlab):
     slabs.append((slices, pos))
     return slabs
 
-    
+def defaultDataParams():
+    defaults = {
+        'fileType': 'MATLAB',
+        'files': [],
+        'dirs':[],
+        'offresCenter': 0.,
+        'clockwisePrecession': False,
+        'temperature': None,
+        'resScale': 1.0, #reScale = 0 #Automatique Norm over 99 %
+        'dx':1.5, #Ad hoc assumption on voxelsize
+        'dy':1.5, #Ad hoc assumption on voxelsize
+        'dz':5, #Ad hoc assumption on voxelsize
+    }
+    return defaults
+
 # Update data param object, set default parameters and read data from files
 def setupDataParams(dPar, outDir=None):
+    #Add out directory path if specified
+    flag_NVF=False #No valid files found
     if outDir:
-        dPar['outDir'] = Path(outDir)
-    elif 'outDir' in dPar:
-        dPar['outDir'] = Path(dPar['outDir'])
-    else:
-        raise Exception('No outDir defined')
+        dPar['outDir'] = outDir
 
-    defaults = [
-        ('reScale', 1.0),
-        ('temperature', None),
-        ('clockwisePrecession', False),
-        ('offresCenter', 0.),
-        ('files', [])
-    ]
+    if not('outDir' in dPar):
+        raise Exception('No out directory path defined (outDir')
 
-    for param, defval in defaults:
+    dPar['outDir'] = op.abspath(dPar['outDir'])
+
+    defaultdPar=defaultDataParams()
+
+    for param, defval in defaultdPar.items():
         if param not in dPar:
             dPar[param] = defval
 
-    if 'files' in dPar:
-        dPar['files'] = [dPar['configPath'] / file for file in list(dPar['files']) if Path(dPar['configPath'] / file).is_file()]
-    
-    if 'dirs' in dPar:
-        dPar['dirs'] = [dPar['configPath'] / dir for dir in list(dPar['dirs']) if Path(dPar['configPath'] / dir).is_dir()]
-        for path in dPar['dirs']:
-            dPar['files'] += [obj for obj in path.iterdir() if obj.is_file()]
-    
-    validFiles = DICOM.getValidFiles(dPar['files'])
-    
-    if validFiles:
-        DICOM.updateDataParams(dPar, validFiles)
-    else:
-        if len(dPar['files']) == 1 and dPar['files'][0].suffix == '.mat':
-            MATLAB.updateDataParams(dPar, dPar['files'][0])
+    del defaultdPar
+
+    dPar['files']=[op.join(dPar['configPath'],file)  if not op.isabs(file) else file for file in dPar['files']]
+
+    dPar['dirs']=[op.join(dPar['configPath'],file)  if not op.isabs(file) else file for file in dPar['dirs']]
+
+    for path_dir in dPar['dirs'] :
+        if op.isdir(path_dir):
+            dPar['files'] +=[op.join(path_dir,file) for file in os.lisdir(path_dir) if op.isfile(op.join(path_dir,file))]
+
+    if dPar['fileType']=='DICOM':
+        validFiles = DICOM.getValidFiles(dPar['files'])
+        if validFiles:
+            DICOM.updateDataParams(dPar, validFiles)
         else:
-            raise Exception('No valid files found')
-    
+            flag_NVF =True
+    elif dPar['fileType']=='MATLAB':
+        if len(dPar['files']) == 1:
+            if dPar['files'][0].split('.')[-1] == 'mat':
+                MATLAB.updateDataParams(dPar, dPar['files'][0])
+            else:
+                flag_NVF = True
+        else:
+            flag_NVF = True
+    else:
+        flag_NVF = True
+
+    if flag_NVF:
+        raise Exception('No valid files found')
+
     if 'reconSlab' in dPar:
         dPar['slabs'] = getSlabs(dPar['sliceList'], dPar['reconSlab'])
 
 
+
 # Read configuration file
 def readConfig(file, section):
-    file = Path(file)
+    file = op.abspath(file)
     with open(file, 'r') as configFile:
         try:
             config = yaml.safe_load(configFile)
         except yaml.YAMLError as exc:
             raise Exception('Error reading config file {}'.format(file)) from exc
-    config['configPath'] = file.parent
+    config['configPath'] = op.dirname(file)
     return config

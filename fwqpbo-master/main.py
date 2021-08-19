@@ -7,9 +7,8 @@ import config
 import fatWaterSeparation
 import DICOM
 import MATLAB
+import config_spectrum as cf
 
-
-gyro = 42.58  # 1H gyromagnetic ratio
 
 
 # Zero pad back any cropped FOV
@@ -26,7 +25,8 @@ def padCropped(croppedImage, dPar):
 
 def save(output, dPar):
     for seriesType in output: # zero pad if was cropped and reshape to row,col,slice
-        output[seriesType] = np.moveaxis(padCropped(output[seriesType].reshape((dPar['nz'], dPar['ny'], dPar['nx'])), dPar), 0, -1)
+        if seriesType!='algoParams':
+            output[seriesType] = np.moveaxis(padCropped(output[seriesType].reshape((dPar['nz'], dPar['ny'], dPar['nx'])), dPar), 0, -1)
     
     if dPar['fileType'] == 'DICOM':
         DICOM.save(output, dPar)
@@ -83,44 +83,98 @@ def getFat(rho, alpha):
 # Perform fat/water separation and return prescribed output
 def reconstruct(dPar, aPar, mPar):
 
-    # Do the fat/water separation
     rho, B0map, R2map = fatWaterSeparation.reconstruct(dPar, aPar, mPar)
     wat = rho[0]
     fat = getFat(rho, mPar['alpha'])
 
+    # Conversion ppm  to Hz
+    larmor = mPar['gyro'] * dPar['B0']
+    B0map = B0map * larmor
+
+    B0map = B0map[np.newaxis,:]
+    R2map = R2map[np.newaxis,:]
+
+    #phi=2*piB0 +j*R2
+    #Estimated signal: (YM)
+    #YM= B*AX=B*K
+    #B=exp(1j*te*phi)
+    #A=alpha*exp(1j*te*omega)
+    #X=[wat,fat]
+    #Warning X=[wat,fat]*exp(1j*t0*phi) => B=exp(1j*dte*phi)
+
+    phi=(2*np.pi*B0map +1j*R2map)
+
+    te=np.array([dPar["t1"]+n*dPar["dt"] for n in range(dPar["N"])])[:,np.newaxis]
+    dte=np.array([n*dPar["dt"] for n in range(dPar["N"])])[:,np.newaxis]
+    B = np.exp(1j * dte * phi)
+    
+    X = np.vstack((wat, fat))
+    omega = 2 * np.pi * larmor * (np.array(mPar['CS']) - mPar['CS'][0])[np.newaxis, :]
+    A =  np.exp(1j * te * omega)*np.sum(mPar['alpha'],axis=0)
+    A = np.hstack((A[:, 0][:, np.newaxis], np.sum(A[:, 1:], axis=1)[:, np.newaxis]))
+    
+    K = np.dot(A, X)
+    
+    YM = B * K #
+
+    R =(dPar["img"] - YM)/dPar['reScale']
+    #Sum of square error
+    SSE=np.linalg.norm(R,axis=0)
+
+
+
     # Prepare prescribed output
     output = {}
-    if 'wat' in aPar['output']:
-        output['wat'] = np.abs(wat)
-    if 'fat' in aPar['output']:
-        output['fat'] = np.abs(fat)
-    if 'phi' in aPar['output']:
-        output['phi'] = np.angle(wat, deg=True) + 180
-    if 'ip' in aPar['output']: # Calculate synthetic in-phase
-        output['ip'] = np.abs(wat+fat)
-    if 'op' in aPar['output']: # Calculate synthetic opposed-phase
-        output['op'] = np.abs(wat-fat)
+    output['sse'] = SSE
+
+    #output['YM'] = YM
+
     if 'ff' in aPar['output']: # Calculate the fat fraction
         if aPar['magnitudeDiscrimination']:  # to avoid bias from noise
-            output['ff'] = 100 * np.real(fat / (wat + fat + sys.float_info.epsilon))
+            output['FF'] = 100 * np.real(fat / (wat + fat + sys.float_info.epsilon))
         else:
-            output['ff'] = 100 * np.abs(fat)/(np.abs(wat) + np.abs(fat) + sys.float_info.epsilon)
+            output['FF'] = 100 * np.abs(fat)/(np.abs(wat) + np.abs(fat) + sys.float_info.epsilon)
+
+    #Correct fat and water map (divide by exp(i(w+iwR2)t1)
+    Corrected_term = np.exp(1j * dPar["t1"] * phi)
+    wat=wat/Corrected_term
+    fat=fat/Corrected_term
+
+    if 'wat' in aPar['output']:
+        output['W'] = wat
+    if 'fat' in aPar['output']:
+        output['F'] = fat
+
+
     if 'B0map' in aPar['output']:
-        output['B0map'] = B0map
+        output['B0'] = B0map
+
     if 'R2map' in aPar['output']:
-        output['R2map'] = R2map
+        output['R2'] = R2map
+
+    output['algoParams'] = aPar
+    
+    #output['unwrapB0']=fatWaterSeparation.unwrap_B0(B0map,dPar)
+
+    # if 'phi' in aPar['output']:
+    #     output['PH'] = np.angle(wat, deg=True) + 180
+    # if 'ip' in aPar['output']: # Calculate synthetic in-phase
+    #     output['ip'] = np.abs(wat+fat)
+    # if 'op' in aPar['output']: # Calculate synthetic opposed-phase
+    #     output['op'] = np.abs(wat-fat)
+
 
     # Do any Fatty Acid Composition in a second pass
-    if mPar['nFAC'] > 0:
-        rho = fatWaterSeparation.reconstruct(dPar, aPar['pass2'], mPar['pass2'], B0map, R2map)[0]
-        CL, UD, PUD = getFattyAcidComposition(rho)
+    # if mPar['nFAC'] > 0:
+    #     rho = fatWaterSeparation.reconstruct(dPar, aPar['pass2'], mPar['pass2'], B0map, R2map)[0]
+    #     CL, UD, PUD = getFattyAcidComposition(rho)
     
-        if 'CL' in aPar['output']:
-            output['CL'] = CL
-        if 'UD' in aPar['output']:
-            output['UD'] = UD
-        if 'PUD' in aPar['output']:
-            output['PUD'] = PUD
+    #     if 'CL' in aPar['output']:
+    #         output['CL'] = CL
+    #     if 'UD' in aPar['output']:
+    #         output['UD'] = UD
+    #     if 'PUD' in aPar['output']:
+    #         output['PUD'] = PUD
 
     return output
 
@@ -129,21 +183,21 @@ def main(dataParamFile, algoParamFile, modelParamFile, outDir=None):
     # Read configuration files
     dPar = config.readConfig(dataParamFile, 'data parameters')
     aPar = config.readConfig(algoParamFile, 'algorithm parameters')
-    mPar = config.readConfig(modelParamFile, 'model parameters')
+    mPar = cf.readConfig(modelParamFile, 'model parameters')
 
     # Setup configuration objects
     config.setupDataParams(dPar, outDir)
-    config.setupModelParams(mPar, dPar['clockwisePrecession'], dPar['temperature'])
+    cf.setupModelParams(mPar, dPar['clockwisePrecession'], dPar['temperature'])
     config.setupAlgoParams(aPar, dPar['N'], mPar['nFAC'])
 
+    print('mu = {}'.format(aPar['mu']))
+    print('outName = {}'.format(dPar['outName']))
     print('B0 = {}'.format(round(dPar['B0'], 2)))
     print('N = {}'.format(dPar['N']))
-    print('t1/dt = {}/{} msec'.format(round(dPar['t1']*1000, 2),
-                                      round(dPar['dt']*1000, 2)))
+    print('t1/dt = {}/{} msec'.format(round(dPar['t1']*1000, 2),round(dPar['dt']*1000, 2)))
     print('nx,ny,nz = {},{},{}'.format(dPar['nx'], dPar['ny'], dPar['nz']))
-    print('dx,dy,dz = {},{},{}'.format(
-        round(dPar['dx'], 2), round(dPar['dy'], 2), round(dPar['dz'], 2)))
-
+    print('dx,dy,dz = {},{},{}'.format(round(dPar['dx'], 2), round(dPar['dy'], 2), round(dPar['dz'], 2)))
+    print("Rescaling factor {}".format(dPar['reScale']))
     # Run fat/water processing and save output
     if aPar['use3D'] or len(dPar['sliceList']) == 1:
         if 'slabs' in dPar:

@@ -1,9 +1,31 @@
 import thinqpbo as tq
 import numpy as np
 from skimage.filters import threshold_otsu
+import skimage.restoration as sr
 
-gyro = 42.576
 
+def unwrap_B0(B0,dPar):
+    """
+
+    :param B0: in Hz
+    :param dPar:
+    :param mPar:
+    :return:
+    """
+
+    B0map = np.reshape(B0,(dPar['nz'], dPar['ny'], dPar['nx']))
+    B0map = B0map.squeeze()
+    #Unwrap BO OMEGA=1/2*dte*Tesla
+    T = np.abs(dPar['dt'])
+
+    B0map=(B0map*2*T-1)*np.pi #[0, omega]->[-pi;pi]
+
+    B0map =sr.unwrap_phase(B0map)
+
+    B0map=B0map / np.pi /T
+
+
+    return B0map.flatten()
 
 def QPBO(nx, ny, nz, D, Vx, Vy, Vz):
     graph = tq.QPBOFloat()
@@ -356,7 +378,7 @@ def modelMatrix(dPar, mPar, R2):
         for m in range(mPar['M']): # Loop over components/species
             for p in range(mPar['P']):  # Loop over all resonances
                 # Chemical shift between water and peak m (in ppm)
-                omega = 2. * np.pi * gyro * dPar['B0'] * (mPar['CS'][p] - mPar['CS'][0])
+                omega = 2. * np.pi * mPar['gyro'] * dPar['B0'] * (mPar['CS'][p] - mPar['CS'][0])
                 RA[n, m] += mPar['alpha'][m][p]*np.exp(complex(-(t-dPar['t1'])*R2, t*omega))
     return RA
 
@@ -402,7 +424,7 @@ def reconstruct(dPar, aPar, mPar, B0map=None, R2map=None):
     if aPar['realEstimates']:
         D = []  # Matrix for calculating phi (needed for real-valued estimates)
     for r in range(aPar['nR2']):
-        R2 = r*aPar['R2step']
+        R2 = r*aPar['R2step']+ aPar['R2min']
         RA.append(modelMatrix(dPar, mPar, R2))
         if aPar['realEstimates']:
             D.append([])
@@ -426,7 +448,7 @@ def reconstruct(dPar, aPar, mPar, B0map=None, R2map=None):
             Qp[r].append(np.dot(RAp[r], Bh[b]))
 
     # For B0 index -> off-resonance in ppm
-    B0step = 1.0/aPar['nB0']/np.abs(dPar['dt'])/gyro/dPar['B0']
+    B0step = 1.0/aPar['nB0']/np.abs(dPar['dt'])/mPar['gyro']/dPar['B0']
     if determineB0:
         V = []  # Precalculate discontinuity costs
         for b in range(aPar['nB0']):
@@ -456,7 +478,7 @@ def reconstruct(dPar, aPar, mPar, B0map=None, R2map=None):
     elif R2map is None:
         R2 = np.zeros(nVxl, dtype=int)
     else:
-        R2 = np.array(R2map/aPar['R2step'], dtype=int)
+        R2 = np.array(R2map/aPar['R2step']- aPar['R2min'], dtype=int)
 
     # Find least squares solution given dB0 and R2
     rho = np.zeros(shape=(mPar['M'], nVxl), dtype=complex)
@@ -479,7 +501,7 @@ def reconstruct(dPar, aPar, mPar, B0map=None, R2map=None):
         R2map = np.empty(nVxl)
 
     if determineR2:
-        R2map[:] = R2*aPar['R2step']
+        R2map[:] = R2*aPar['R2step']+ aPar['R2min']
 
     if determineB0:
         B0map[:] = dB0*B0step

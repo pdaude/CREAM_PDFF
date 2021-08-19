@@ -1,37 +1,91 @@
 import scipy.io
 import numpy as np
 from pathlib import Path
-
+import load_mat as lmat
+import os
+import os.path as op
 
 # update dPar with information retrieved from MATLAB file
 # (arranged according to ISMRM fat-water toolbox)
 def updateDataParams(dPar, file):
+    """
+
+    :param dPar:
+    :param file:
+    List of params add in dPar:
+    B0 : Fieldstrength [T]
+    ny,nx,nz,totalN : x,y,z, of complex img
+    sliceList : range of nz
+    echoes: index of echo time
+    N : number of echoes
+    Nx,Ny : if cropFOV
+    t1 : first echo time
+    dt : echo inter spacing
+    img : cmplx image (echo,slice,row,col) =(N,nz,ny,nx)
+    :return:
+    """
+    
     dPar['fileType'] = 'MATLAB'
     try:
-        mat = scipy.io.loadmat(file)
+        mat = lmat.loadmat(file)
     except:
         raise Exception('Could not read MATLAB file {}'.format(file))
-    data = mat['imDataParams'][0, 0]
 
-    for i in range(0, 4):
-        if len(data[i].shape) == 5:
-            img = data[i]  # Image data (row,col,slice,coil,echo)
-        elif data[i].shape[1] > 2:
-            echoTimes = data[i][0]  # TEs [sec]
-        else:
-            if data[i][0, 0] > 1:
-                dPar['B0'] = data[i][0, 0]  # Fieldstrength [T]
-            else:
-                clockwise = data[i][0, 0]  # Clockwiseprecession?
 
+    #Get variable names in imDataParams :
+    #Mandatory variables
+    # images : (nx,ny,nz,ncoil,nt) complex img
+    # TE : echo times [sec]
+    #FieldStrength : Fieldstrength [T]
+    #PrecessionIsClockwise: clockwise precession
+    #Optionnal variable:
+    #fieldmap : B0 fieldmap [Hz]
+
+
+    Varnames=mat['imDataParams'].keys()
+
+    if 'images' in Varnames:
+        img=mat['imDataParams']['images']
+    else:
+        raise Exception('Warning: Not image in imDataParams' +
+                        'Need to save your image (nx,ny,nz,ncoil,nt) as images')
+
+    if 'TE' in Varnames:
+        echoTimes=mat['imDataParams']['TE'] # TEs [sec]
+    else:
+        raise Exception('Warning: Not TE in imDataParams' +
+                        'Need to save your echotimes (sec) as TE')
+
+    if 'FieldStrength' in Varnames:
+        dPar['B0']=mat['imDataParams']['FieldStrength'][0] # Fieldstrength [T]
+    else:
+        raise Exception('Warning: Not FieldStrength in imDataParams' +
+                        'Need to save your fieldstrength (T) as FieldStrength')
+
+    if 'PrecessionIsClockwise' in Varnames:
+        clockwise=mat['imDataParams']['PrecessionIsClockwise'][0]  # Clockwiseprecession
+    else:
+        raise Exception('Warning: Not clockwise precession in imDataParams' +
+                        'Need to save your clockwise precession as PrecessionIsClockwise')
+
+    if 'unwrapped_phase' in Varnames:
+        dPar['unwrapped_phase']=mat['imDataParams']['unwrapped_phase'][:,:,:,0,:]
+        
+    if 'voxelSize' in Varnames:
+        dPar['dy'],dPar['dx'],dPar['dz']=mat['imDataParams']['voxelSize']
+
+        
     if clockwise != 1:
         raise Exception('Warning: Not clockwise precession. ' +
-                        'Need to write code to handle this case!')
+                    'Need to write code to handle this case!')
+
 
     dPar['ny'], dPar['nx'], dPar['nz'], nCoils, dPar['N'] = img.shape
     if nCoils > 1:
         raise Exception('Warning: more than one coil. ' +
                         'Need to write code to coil combine!')
+
+
 
     # Get only slices in dPar['sliceList']
     if 'sliceList' not in dPar:
@@ -64,7 +118,7 @@ def updateDataParams(dPar, file):
 
     dPar['frameList'] = []
 
-    dPar['dx'], dPar['dy'], dPar['dz'] = 1.5, 1.5, 5  # Ad hoc assumption on voxelsize
+
 
     # To get data as: (echo,slice,row,col)
     img.shape = (dPar['ny'], dPar['nx'], dPar['nz'], dPar['N'])
@@ -77,7 +131,19 @@ def updateDataParams(dPar, file):
 
 # Save output as MATLAB arrays
 def save(output, dPar):
-    dPar['outDir'].mkdir(parents=True, exist_ok=True)
-    filename = dPar['outDir'] / './{}.mat'.format(dPar['sliceList'][0])
-    print(r'Writing images to "{}"'.format(filename))
-    scipy.io.savemat(filename, output)
+    if 'outName' in dPar:
+        sse=output.pop("sse")
+        algoParams=output.pop("algoParams")
+
+        out_mat = {"params": output,"sse":sse,'algoParams':algoParams}
+        print(op.abspath(dPar['outDir']))
+
+        if not op.exists(op.abspath(dPar['outDir'])):
+            os.mkdir(op.abspath(dPar['outDir']))
+        filename=op.join(op.abspath(dPar['outDir']),'{}.mat'.format(dPar['outName']))
+        scipy.io.savemat(filename, out_mat)
+    else:
+        dPar['outDir'].mkdir(parents=True, exist_ok=True)
+        filename = dPar['outDir'] / './{}.mat'.format(dPar['sliceList'][0])
+        print(r'Writing images to "{}"'.format(filename))
+        scipy.io.savemat(filename, output)
