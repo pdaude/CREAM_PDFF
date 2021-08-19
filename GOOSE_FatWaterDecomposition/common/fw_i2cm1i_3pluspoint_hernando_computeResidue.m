@@ -144,14 +144,18 @@ catch
     range = diff(algoParams.range_fm);
     params.NUM_FMS = ceil(algoParams.NUM_FMS/range*period);
     params.range_fm = [0 period*(1-1/(algoParams.NUM_FMS))];
-    [residual,r2starmap] = computeResidual( imDataParams, algoParams );
+    [residual,r2starmap] = GOOSE_computeResidual( imDataParams, algoParams );
     num_periods = ceil(range/period/2);
     algoParams.NUM_FMS = 2*num_periods*algoParams.NUM_FMS;
     residual = repmat(residual,[2*num_periods 1 1]);
     algoParams.range_fm = [-num_periods*period (num_periods*period-period/NUM_FMS_ORIG)];
+    disp("range_fm")
+    disp(algoParams.range_fm)
+    disp("Num_FMS")
+    disp(algoParams.NUM_FMS)
   else
     % If not uniformly spaced TEs, get the residual for the whole range
-      [residual, r2starmap] = computeResidual( imDataParams, algoParams );
+      [residual, r2starmap] = GOOSE_computeResidual( imDataParams, algoParams );
   end
 
 end

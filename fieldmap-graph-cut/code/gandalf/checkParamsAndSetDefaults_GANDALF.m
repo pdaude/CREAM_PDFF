@@ -48,8 +48,12 @@ function VARPROparamsout = checkParamsAndSetDefaults_GANDALF(imDataParams, algoP
     
     disctreizationintervall = ceil( diff(VARPROparamsout.range_fm) );
     Numlayers = ceil( disctreizationintervall / VARPROparamsout.sampling_stepsize );
+    disp(["Numlayers",Numlayers])
+    
     VARPROparamsout.NUM_FMS = Numlayers;
     t = linspace(VARPROparamsout.range_fm(1), VARPROparamsout.range_fm(2), VARPROparamsout.NUM_FMS);
     gridspacing = t(2)-t(1);
+    disp(["gridspacing",gridspacing])
+    disp(["gridspacing",VARPROparamsout.range_fm])
     VARPROparamsout.gridspacing = gridspacing;
 end

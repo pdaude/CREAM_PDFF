@@ -1,4 +1,5 @@
 function [params,sse,outParams]= Berglund_main(imDataParams,algoParams)
+algoParams.fat_R2s = zeros(size(algoParams.species(2).relAmps));
 outParams = fw_i3cm1i_3pluspoint_berglund_QPBO(imDataParams,algoParams);
 params.B0= outParams.fieldmap ; % B0 (Hz)
 params.R2 = outParams.r2starmap; %(s-1)

@@ -38,9 +38,11 @@ alpha = zeros(M,P);
 alpha(1,1) = 1;
 alpha(2,2:end) = relAmps;
 
-if ~isfield(algoParams,'voxelSize')
+if ~isfield(imDataParams,'voxelSize')
     imDataParams.voxelSize=[1.5 1.5 5];
     disp("Add fictif voxel size (1.5 1.5 5)")
+end
+
 dx = imDataParams.voxelSize(1);
 dy = imDataParams.voxelSize(2);
 dz = imDataParams.voxelSize(3);

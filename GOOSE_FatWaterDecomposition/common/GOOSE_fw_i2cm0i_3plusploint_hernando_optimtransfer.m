@@ -40,7 +40,7 @@
 % Date created: June 11, 2009
 % Date last modified: November 10, 2011
 
-function outParams = fw_i2cm0i_3plusploint_hernando_optimtransfer( imDataParams, algoParams )
+function outParams = GOOSE_fw_i2cm0i_3plusploint_hernando_optimtransfer( imDataParams, algoParams )
 
 DEBUG_MODE = 0;
 
@@ -59,7 +59,7 @@ if imDataParams.PrecessionIsClockwise <= 0
 end
 
 % Get recon parameters and images
-gyro = algoParams.gyro%42.58;
+gyro = algoParams.gyro;%42.58;
 deltaF = [0 ; gyro*(algoParams.species(2).frequency(:))*(imDataParams.FieldStrength)];
 relAmps = algoParams.species(2).relAmps;
 range_fm = algoParams.range_fm;
@@ -106,7 +106,7 @@ end
 
 % Need to get a upper bound on the Hessian of the data term 
 % This should be easy, because data term is voxel-independent
-Phi = getPhiMatrixMultipeak( deltaF,relAmps,t );
+Phi = GOOSE_getPhiMatrixMultipeak( deltaF,relAmps,t );
 Gamma = Phi*inv(Phi'*Phi)*Phi';
 [TM,TN] = meshgrid(reshape(t,[],1));
 maxSignal = sum(sum(max(abs(images).^2,[],3),4),5);
@@ -170,7 +170,7 @@ end
 for ka=1:num_acqs
   curParams = imDataParams;
   curParams.images = imDataParams.images(:,:,:,:,:,ka);
-  amps = decomposeGivenFieldMapAndDampings( curParams,algoParams, fm,r2starmap(:,:,ka),r2starmap(:,:,ka) );
+  amps = GOOSE_decomposeGivenFieldMapAndDampings( curParams,algoParams, fm,r2starmap(:,:,ka),r2starmap(:,:,ka) );
   w(:,:,:,ka) = squeeze(amps(:,:,1,:));
   f(:,:,:,ka) = squeeze(amps(:,:,2,:));
 end

@@ -185,7 +185,7 @@ if ( (algoParams.R2star_calibration) && (DixonQPBO_input.estimate_R2) ),
             if ( max(idx_crop_x{sl})>crop_x_3D_stop ),
                 crop_x_3D_stop = max(idx_crop_x{sl});
             end
-            if ( min(idx_crop_y{sl})<crop_y_3D_start ),
+            if ( min(idx_crop_y{sl})<crop_y_3D_start )
                 crop_y_3D_start = min(idx_crop_y{sl});
             end
             if ( max(idx_crop_y{sl})>crop_y_3D_stop ),

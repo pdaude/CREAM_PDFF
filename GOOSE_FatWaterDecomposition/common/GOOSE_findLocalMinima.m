@@ -24,7 +24,7 @@
 %Date last update: March 18, 2008
 %--------------------------------------------------------------------------
 
-function [masksignal,resLocalMinima,numMinimaPerVoxel] = findLocalMinima( residual, threshold, masksignal )
+function [masksignal,resLocalMinima,numMinimaPerVoxel] = GOOSE_findLocalMinima( residual, threshold, masksignal )
 
 
 % Get the dimensions

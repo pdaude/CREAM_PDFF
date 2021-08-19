@@ -27,31 +27,22 @@
 %%   - outParams.r2starmap: R2* map (in s^{-1}, size [nx,ny,nz])
 %%   - outParams.fieldmap: field-map (in Hz, size [nx,ny,nz])
 %%
-%% Author: Christof Boehm
-%% Date created: September 16, 2020
-%% MATLAB R2017b
+%% Author: Pierre Daude
+
 clear all 
 clc
 close all
 %Add Paths :
 % with subfolders
 
-algoParams=ReadYaml('/home/pdaude/Projet_Python/CREAM_PDFF/algoParams/Bohm_algoParams.yml');
-img=load('/home/pdaude/Projet_Python/CREAM_PDFF/fw_i3cm1i_3pluspoint_berglund_QPBO/test_cases/01.mat');
-algoParams.species(1).name = 'water'; % Water
-algoParams.species(1).frequency = [0] ;
-algoParams.species(1).relAmps = [1]; 
-algoParams.species(2).name = 'fat'; % Fat
-algoParams.species(2).frequency = [-3.8000 -3.4000 -3.1000 -2.6800 -2.4600 -1.9500 -0.5000 0.4900 0.5900];
-algoParams.species(2).relAmps = [0.0899 0.5834 0.0599 0.0849 0.0599 0.0150 0.0400 0.0100 0.0569];
+algoParams=ReadYaml('../CREAM_PDFF/algoParams/Boehm_algoParams.yml');
 
-algoParams.species(1).name = 'water';
-algoParams.species(1).frequency = 4.7;
-algoParams.species(1).relAmps = 1;
-algoParams.species(2).name = 'fat';
-algoParams.species(2).frequency = [0.9,1.3,2.1,2.76,4.31,5.3];
-algoParams.species(2).relAmps = [0.087 0.693 0.128 0.004 0.039 0.048];
-algoParams.gyro=42.57747892;
+modelParams =ReadYaml('../CREAM_PDFF/modelParams/CustommodelParams.yml');
+[species ,FWspectrum]= setupModelParams(modelParams);
+algoParams.gyro=FWspectrum.gyro;
+algoParams.species =species;
+
+img=load('../CREAM_PDFF/simu.mat');
 
 [params, sse] = GC_main(img.imDataParams,algoParams);
-save('output_GC.mat','params','sse'); 
+save('output_Boehm_simu.mat','params','sse'); 

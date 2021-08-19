@@ -32,12 +32,12 @@
 % Date last modified: August 18, 2011
 
 
-function [r2starmap,residual] = estimateR2starGivenFieldmap ( imDataParams, algoParams, fm )
+function [r2starmap,residual] = Boehm_estimateR2starGivenFieldmap ( imDataParams, algoParams, fm )
 
 range_r2star = algoParams.range_r2star;
 NUM_R2STARS = algoParams.NUM_R2STARS;
-gyro = 42.58;
-deltaF = [0 ; gyro*(algoParams.species(2).frequency(:))*(imDataParams.FieldStrength)];
+gyro =algoParams.gyro;
+deltaF = [0 ; gyro*(algoParams.species(2).frequency(:)-algoParams.species(1).frequency(1))*(imDataParams.FieldStrength)];
 relAmps = algoParams.species(2).relAmps;
 images = imDataParams.images;
 t = imDataParams.TE;
@@ -61,7 +61,7 @@ end
 
 % Compute residual as a function of r2
 r2s = linspace(range_r2star(1),range_r2star(2),NUM_R2STARS);
-Phi = getPhiMatrixMultipeak(deltaF,relAmps,t);
+Phi = Boehm_getPhiMatrixMultipeak(deltaF,relAmps,t);
 P = [];
 for k=1:NUM_R2STARS
   Psi = diag(exp(-r2s(k)*t));

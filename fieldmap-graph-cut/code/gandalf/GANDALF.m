@@ -571,8 +571,8 @@ function outParams = GANDALF(imDataParams, algoParams, VARPROparams)
         tmp_imDataParams = imDataParams;
         tmp_imDataParams.images = tmp_imDataParams.images(:, :, Z, :, :);
         
-        r2starmap(:, :, Z) = estimateR2starGivenFieldmap( tmp_imDataParams, algoParams, squeeze(dfm(:, :, Z)) );
-        amps = decomposeGivenFieldMapAndDampings( tmp_imDataParams, algoParams, squeeze(dfm(:, :, Z)), r2starmap(:, :, Z), r2starmap(:, :, Z) );
+        r2starmap(:, :, Z) = Boehm_estimateR2starGivenFieldmap( tmp_imDataParams, algoParams, squeeze(dfm(:, :, Z)) );
+        amps = Boehm_decomposeGivenFieldMapAndDampings( tmp_imDataParams, algoParams, squeeze(dfm(:, :, Z)), r2starmap(:, :, Z), r2starmap(:, :, Z) );
         
         waterimage = squeeze(amps(:, :, 1, :));
         fatimage = squeeze(amps(:, :, 2, :));

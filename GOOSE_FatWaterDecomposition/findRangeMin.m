@@ -14,8 +14,8 @@ if precessionIsClockwise <= 0
   imDataParams.PrecessionIsClockwise = 1;
 end
 
-gyro = 42.58;
-deltaF = [0 ; gyro*(algoParams.species(2).frequency(:))*(imDataParams.FieldStrength)];
+gyro =algoParams.gyro;
+deltaF = [0 ; gyro*(algoParams.species(2).frequency(:)-algoParams.species(1).frequency(1))*(imDataParams.FieldStrength)];
 relAmps = algoParams.species(2).relAmps;
 %range_fm = algoParams.range_fm;
 t = imDataParams.TE;
@@ -32,7 +32,7 @@ N = size(images,5);
 C = size(images,4);
 
 % Get VARPRO-formulation matrices for given echo times and chemical shifts 
-Phi = getPhiMatrixMultipeak(deltaF,relAmps,t);
+Phi = GOOSE_getPhiMatrixMultipeak(deltaF,relAmps,t);
 %Phi(:,1) = 0;
 iPhi = pinv(Phi'*Phi);
 A = Phi*iPhi*Phi';

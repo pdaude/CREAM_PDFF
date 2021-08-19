@@ -15,7 +15,7 @@
 %Date last update: June 9, 2009
 %--------------------------------------------------------------------------
 
-function d2 = getQuadraticApprox( residual, dfm )
+function d2 = GOOSE_getQuadraticApprox( residual, dfm )
 
 [NUM_FMS,sx,sy] = size(residual);
 resoffset = [0:(sx*sy-1)]'*NUM_FMS;

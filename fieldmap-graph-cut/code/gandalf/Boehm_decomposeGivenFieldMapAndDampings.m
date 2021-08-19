@@ -31,9 +31,9 @@
 % Date created: 
 % Date last modified: August 18, 2011
 
-function [amps,remerror] = decomposeGivenFieldMapAndDampings( imDataParams,algoParams,fieldmap,r2starWater,r2starFat )
+function [amps,remerror] = Boehm_decomposeGivenFieldMapAndDampings( imDataParams,algoParams,fieldmap,r2starWater,r2starFat )
 
-gyro = 42.58;
+gyro = algoParams.gyro;
 
 
 
@@ -43,6 +43,12 @@ catch
   precessionIsClockwise = 1;
 end
 
+try 
+  ampW = algoParams.species(1).relAmps;
+catch
+  ampW = 1.0
+end
+
   
 % If precession is clockwise (positive fat frequency) simply conjugate data
 if precessionIsClockwise <= 0 
@@ -50,7 +56,7 @@ if precessionIsClockwise <= 0
   imDataParams.PrecessionIsClockwise = 1;
 end
 
-deltaF = [0 ; gyro*(algoParams.species(2).frequency(:))*(imDataParams.FieldStrength)];
+deltaF = [0 ; gyro*(algoParams.species(2).frequency(:) - algoParams.species(1).frequency(1))*(imDataParams.FieldStrength)];
 relAmps = algoParams.species(2).relAmps;
 images = imDataParams.images;
 t = imDataParams.TE;
@@ -66,7 +72,7 @@ relAmps = reshape(relAmps,1,[]);
 B1 = zeros(N,2);
 B = zeros(N,2);
 for n=1:N
-  B1(n,:) = [exp(j*2*pi*deltaF(1)*t(n)),sum(relAmps(:).*exp(j*2*pi*deltaF(2:end)*t(n)))];
+  B1(n,:) = [ampW*exp(j*2*pi*deltaF(1)*t(n)),sum(relAmps(:).*exp(j*2*pi*deltaF(2:end)*t(n)))];
 end
 
 remerror = zeros(sx,sy);
@@ -84,5 +90,3 @@ for kx =1:sx
     end
   end
 end
-
-

@@ -17,7 +17,7 @@
 % Date created: Aug 27, 2008
 % Last modified: Aug 27, 2008
 %
-function Phi = getPhiMatrixMultipeak( deltafs,relAmps, t )
+function Phi = GOOSE_getPhiMatrixMultipeak( deltafs,relAmps, t )
 
 [DF,T] = meshgrid( deltafs,t );
 [A,T2] = meshgrid( relAmps,t );

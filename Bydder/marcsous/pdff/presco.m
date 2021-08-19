@@ -178,7 +178,7 @@ if isempty(opts.psi)
 
     othertmp = dot(data(:,:,:,1:min(ne-1,3)),data(:,:,:,2:min(ne,4)),4);
     dte=diff(te);
-    psi = angle(othertmp)/min(dte(1:min(ne,4)))+i*imag(opts.psif);
+    psi = angle(othertmp)/min(dte(1:min(ne-1,4)))+i*imag(opts.psif);
     init_psi = psi;
 else
     

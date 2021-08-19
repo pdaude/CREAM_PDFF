@@ -54,7 +54,7 @@ end
 %% get w/f images
 fms = linspace(algoParams.range_fm(1),algoParams.range_fm(2),algoParams.NUM_FMS);
 dfm = fms(2)-fms(1);
-lmap = getQuadraticApprox( residual, dfm );  
+lmap = GOOSE_getQuadraticApprox( residual, dfm );  
 lmap = (sqrt(lmap)).^algoParams.LMAP_POWER;
 lmap = lmap + mean(lmap(:))*algoParams.LMAP_EXTRA;
 
@@ -81,14 +81,14 @@ for ka=1:size(imDataParamsZ.images,6)
   if algoParams.range_r2star(2)>0
     % DH* 100422 use fine R2* discretization at this point 
     algoParams.NUM_R2STARS = round(algoParams.range_r2star(2)/2)+1; 
-    r2starmap(:,:,ka) = estimateR2starGivenFieldmap( curParams, algoParams, fm );
+    r2starmap(:,:,ka) = GOOSE_estimateR2starGivenFieldmap( curParams, algoParams, fm );
   else
     r2starmap(:,:,ka) = zeros(size(fm));
   end
   
   if algoParams.DO_OT ~= 1
     % If no Optimization Transfer, just get the water/fat images
-    amps = decomposeGivenFieldMapAndDampings( curParams,algoParams, fm,r2starmap(:,:,ka),r2starmap(:,:,ka) );
+    amps = GOOSE_decomposeGivenFieldMapAndDampings( curParams,algoParams, fm,r2starmap(:,:,ka),r2starmap(:,:,ka) );
     waterimage = squeeze(amps(:,:,1,:));
     fatimage = squeeze(amps(:,:,2,:));
     w(:,:,:,ka) = waterimage;
@@ -105,14 +105,14 @@ if algoParams.DO_OT == 1
   algoParams.r2starmap = r2starmap;
   algoParams.lambdamap = sqrt(algoParams.lambda*lmap);
   
-  outParams = fw_i2cm0i_3plusploint_hernando_optimtransfer( imDataParamsZ, algoParams  );      
+  outParams = GOOSE_fw_i2cm0i_3plusploint_hernando_optimtransfer( imDataParamsZ, algoParams  );      
   fm = outParams.fieldmap;
   
 
   % Now re-estimate the R2* map and water/fat images
   if algoParams.range_r2star(2)>0
     algoParams.NUM_R2STARS = round(algoParams.range_r2star(2)/2)+1; 
-    r2starmap(:,:,ka) = estimateR2starGivenFieldmap( curParams,algoParams, fm );
+    r2starmap(:,:,ka) = GOOSE_estimateR2starGivenFieldmap( curParams,algoParams, fm );
   else
     r2starmap(:,:,ka) = zeros(size(fm));
   end
@@ -121,7 +121,7 @@ if algoParams.DO_OT == 1
   r2star(:,:,2) = r2starmap(:,:,ka);
   
   % Now estimate the water/fat images
-  amps = decomposeGivenFieldMapAndDampings( curParams,algoParams, fm,r2starmap(:,:,ka),r2starmap(:,:,ka) );
+  amps = GOOSE_decomposeGivenFieldMapAndDampings( curParams,algoParams, fm,r2starmap(:,:,ka),r2starmap(:,:,ka) );
   waterimage = squeeze(amps(:,:,1,:));
   fatimage = squeeze(amps(:,:,2,:));
   outParams.water = waterimage;

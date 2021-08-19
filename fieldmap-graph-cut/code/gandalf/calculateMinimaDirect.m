@@ -34,7 +34,7 @@ function outParams = calculateMinimaDirect(imDataParams, VARPROparams)
         tmp_imDataParams = imDataParams;
         tmp_imDataParams.images = imDataParams.images(:, :, Z, :, :);
         t1 = tic;
-        [residual, ~] = computeResidual( tmp_imDataParams, VARPROparams );
+        [residual, ~] = Boehm_computeResidual( tmp_imDataParams, VARPROparams );
         t1 = toc(t1);
         fprintf('residual calculation done! (%.2fs)', t1);
         %% Transfer to array
