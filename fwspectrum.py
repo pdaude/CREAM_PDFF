@@ -84,6 +84,56 @@ class Berglund2012_FWspectrum(Custom_FWspectrum):
         return amps
 
 
+class Berglundndb2012_FWspectrum(Custom_FWspectrum):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def initFV(self):
+        self.FVs = {"UFV": 0,
+                    "NDB": 0,
+                    "NMIDB": 0,
+                    "CL": 0,
+                    "fatCS": [0.90, 1.30, 1.59, 2.03, 2.25, 2.77, 4.1, 4.3, 5.21, 5.31],
+                    "realAmps": []}
+
+    def setFattyPeaks(self):
+        CL = self.FVs["CL"]
+        nmidb = self.FVs["NMIDB"]
+        ndb = self.FVs["NDB"]
+        if self.FVs["UFV"] == 0:
+            amps = np.array([9, ((CL - 4) * 6) - (ndb * 8) + nmidb * 2, 6, (ndb - nmidb) * 4, 6, nmidb * 2, 2, 2, 1, 2 * ndb])
+            amps = amps / np.sum(amps)
+
+        elif self.FVs["UFV"] == 1:
+            #Unkwown Fat variable = ndb
+            # F1 = 9A+(6(CL-4)+2nmidb)B+6C-4(nmidb)D+6E+2(nmidb)F+4(G+H)+I
+            # F2 = -8B+4D+2J
+            amps = np.array([[9, 6 * (CL - 4)+2*nmidb, 6, nmidb*-4, 6, nmidb * 2, 2, 2, 1, 0],
+                             [0,- 8, 0,4, 0, 0, 0, 0, 0, 2]])
+        elif self.FVs["UFV"] == 2:
+            # Unkwown Fat variable = ndb and nmidb
+            # F1 = 9A+(6(CL-4)B+6C+6E+4(G+H)+I
+            # F2 = -8B+4D+2J
+            # F3 = 2B -4D+2F
+            amps = np.array([[9, 6 * (CL - 4), 6,0, 6,0, 2, 2, 1, 0],
+                             [0, - 8, 0, 4, 0, 0, 0, 0, 0, 2],
+                             [0, 2, 0, -4, 0, 2, 0, 0, 0, 0]])
+
+        elif self.FVs["UFV"] == 3:
+            # Unkwown Fat variable = ndb, nmidb and CL
+            # F1 = 9A-24B+6C+6E+4(G+H)+I
+            # F2 = -8B+4D+2J
+            # F3 = 2B -4D+2F
+            # F4 = 6B
+            amps = np.array([[9, -24, 6, 0, 6, 0, 2, 2, 1, 0],
+                             [0, - 8, 0, 4, 0, 0, 0, 0, 0, 2],
+                             [0, 2, 0, -4, 0, 2, 0, 0, 0, 0],
+                             [0, 6, 0, 0, 0, 0, 0, 0, 0, 0]])
+        else:
+            raise Exception("Ukwnown Fat variable should be between 0 and 3")
+        return amps
+
+
 class HamiltonLiver2011_FWspectrum(Custom_FWspectrum):
     # Hamilton G, et al. NMR Biomed. 24(7):784-90, 2011. PMID: 21834002
     def __init__(self, **kwargs):
@@ -161,7 +211,7 @@ class Bydder2011_FWspectrum(Hamiltonndb2011_FWspectrum):
                     "realAmps": []}
 
 
-class Hodson2008_FWspectrum(Hamiltonndb2011_FWspectrum):
+class Hodson2008_FWspectrum(Berglundndb2012_FWspectrum):
     # Hodson L, et al. Prog Lipid Res. 2008;47:348-380. PMID: 18435934 DOI: 10.1016/j.plipres.2008.03.003
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -171,7 +221,7 @@ class Hodson2008_FWspectrum(Hamiltonndb2011_FWspectrum):
                     "NDB": 2.69,
                     "NMIDB": 0.58,
                     "CL": 17.29,
-                    "fatCS": [0.90, 1.30, 1.60, 2.02, 2.24, 2.75, 4.20, 5.19, 5.29],
+                    "fatCS": [0.90, 1.30, 1.59, 2.03, 2.25, 2.77, 4.1, 4.3, 5.21, 5.31],
                     "realAmps": []}
 
 
