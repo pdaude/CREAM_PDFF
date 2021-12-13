@@ -144,6 +144,13 @@ FF(isnan(FF)) = 0;
 label = permute(reshape(label,[nx ny nz]),[2 1 3]);
 lambda_map = permute(reshape(lambda_map,[nx ny nz]),[2 1 3]);
 
+%#Correct fat and water map (divide by exp(i(B0+iR2)t1) (Pierre)
+phi=2*pi*B0map +1i*R2map;
+Corrected_term = exp(1i * t1 * phi);
+water = water./Corrected_term;
+fat = fat./Corrected_term;
+
+
 % Convert ppm to Hz
 larmor=gyro*B0;
 B0map=B0map*larmor;

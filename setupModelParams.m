@@ -17,8 +17,8 @@ function [species,FWSpectrumOutput] = setupModelParams(mPar,varargin)
     
     for n= 1:numel(defaultfields)
         strfield=string(defaultfields(n));
-         if isfield(mPar ,defaultfields(n))
-             defaultmPar.(strfield)=mPar.(strfield);
+         if ~isfield(mPar ,defaultfields(n))
+             mPar.(strfield)=defaultmPar.(strfield);
          end
     end
     
@@ -31,12 +31,12 @@ function [species,FWSpectrumOutput] = setupModelParams(mPar,varargin)
      list_dirFWSpectrum=dir(fullfile(dirpath,'FWSpectrumClasses','@*_FWspectrum'));
      FWSpectrumClasses=cellfun(@(x) x(2:end),{list_dirFWSpectrum.name},'UniformOutput',false);
      FWSpectrumClassesname= cellfun(@(x) x(2:strfind(x,'_FWspectrum')-1),{list_dirFWSpectrum.name},'UniformOutput',false);
-     FWSpectrumClass=FWSpectrumClasses(strcmp(FWSpectrumClassesname,defaultmPar.model));
+     FWSpectrumClass=FWSpectrumClasses(strcmp(FWSpectrumClassesname,mPar.model));
      if isempty(FWSpectrumClass)
         error('Unknown spectrum model :  \n Available models are %s',string(join(FWSpectrumClassesname,', ')))
      end
-     X = fieldnames(defaultmPar);
-     Y = struct2cell(defaultmPar);
+     X = fieldnames(mPar);
+     Y = struct2cell(mPar);
      C = [X,Y].';
      FWSpectrumOutput=feval(string(FWSpectrumClass),C{:});
      species=FWSpectrumOutput.ISMRMformat();

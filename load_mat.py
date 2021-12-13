@@ -1,5 +1,7 @@
 #Code from https://stackoverflow.com/questions/7008608/scipy-io-loadmat-nested-structures-i-e-dictionaries
 #Improve scipy.io.loadmat : Really transform .mat in dictionary
+
+#Correct error with string array
 import scipy.io as spio
 import numpy as np
 
@@ -24,8 +26,14 @@ def loadmat(filename):
 
     def _has_struct(elem):
         """Determine if elem is an array and if any array item is a struct"""
-        return isinstance(elem, np.ndarray) and any(isinstance(
-                    e, spio.matlab.mio5_params.mat_struct) for e in elem)
+        struct_flag=False
+        if isinstance(elem, np.ndarray) and elem.ndim>0:
+            if any(isinstance(e, spio.matlab.mio5_params.mat_struct) for e in elem):
+                struct_flag= True
+        return struct_flag
+        
+        #return isinstance(elem, np.ndarray) and any(isinstance(
+        #            e, spio.matlab.mio5_params.mat_struct) for e in elem)
 
     def _todict(matobj):
         '''

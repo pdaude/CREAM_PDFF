@@ -44,6 +44,8 @@ elseif isa(te,'struct')
 end
 
 %% options
+% options CREAM
+opts.kspace_shift = 0;
 
 % constraints
 opts.muB = 0.00; % regularization for B0
@@ -96,6 +98,7 @@ if opts.none
     opts.nonnegFF = 0;
     opts.nonnegR2 = 0;
     opts.smooth_phase = 0;
+    opts.kspace_shift = 0;
 end
 
 %% argument checks - be flexible: 1D, 2D or 3D data
@@ -157,14 +160,15 @@ end
 %% center kspace (otherwise smoothing is risky)
 
 mask = dot(data,data,4);
-
-data = fft(fft2(data),[],3);
-tmp = dot(data,data,4);
-[~,k] = max(tmp(:));
-[dx dy dz] = ind2sub([nx ny nz],k);
-data = circshift(data,1-[dx dy dz]);
-data = ifft(ifft2(data),[],3).*(mask>0);
-fprintf(' Shifting kspace center from [%i %i %i]\n',dx,dy,dz);
+if opts.kspace_shift    
+    data = fft(fft2(data),[],3);
+    tmp = dot(data,data,4);
+    [~,k] = max(tmp(:));
+    [dx dy dz] = ind2sub([nx ny nz],k);
+    data = circshift(data,1-[dx dy dz]);
+    data = ifft(ifft2(data),[],3).*(mask>0);
+    fprintf(' Shifting kspace center from [%i %i %i]\n',dx,dy,dz);
+end
 
 opts.mask = mask > opts.noise^2;
 
@@ -437,7 +441,6 @@ eiphi = exp(i*phi);
 WAx = W.*(opts.A*x);
 r = bsxfun(@times,WAx,eiphi);
 r = reshape(r-b,ne,nx,ny,nz);
-
 %% derivatives w.r.t. real(psi) and imag(psi)
 
 % if not needed, return early
