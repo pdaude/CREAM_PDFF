@@ -1,4 +1,4 @@
-# Comparative REview of Algorithm and Method for proton-density fat fractoon (PDFF) quantification (CREAM_PDFF)
+# Comparative REview of Algorithm and Method for proton-density fat fraction (PDFF) quantification (CREAM_PDFF)
 
 The  CREAM_PDFF is a multi-language toolbox developed to evaluate state-of-the art open source algorithms for fat-water separation. 
 
