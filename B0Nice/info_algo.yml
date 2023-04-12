@@ -1,0 +1,10 @@
+Reference: Liu et al.
+Referred as: B0-NICE
+Method: Region-Based
+Code: Matlab
+2D/3D: 3D
+Echo spacing: Uniform
+Year: 2015
+Code repository: B0-Nice repository
+Code repository Url: https://fr.mathworks.com/matlabcentral/fileexchange/48313-b0-mapping-b0-nice
+main CREAM code: B0NICE_main

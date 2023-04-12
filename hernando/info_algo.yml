@@ -1,0 +1,11 @@
+Reference: Hernando et al.
+Referred as: Hernado-GC
+Method: Graph-cut
+Code: Matlab
+2D/3D: 2D
+Echo spacing: Uniform/Free
+Year: 2015
+Code repository: Hernado-GC repository
+Code repository Url: https://www.ismrm.org/workshops/FatWater12/data.htm
+main CREAM code: hernando_main
+

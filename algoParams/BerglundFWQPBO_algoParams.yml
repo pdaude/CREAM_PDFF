@@ -3,7 +3,7 @@ R2max: 100
 R2cand:
 - 40.0
 mu: 0.1
-nB0: 500
+nB0: 481
 nICMiter: 10
 graphcut: true
 multiScale: true
