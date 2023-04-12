@@ -4,8 +4,11 @@ import yaml
 
 import fwspectrum as fws
 import inspect
-# Read configuration file
+
 def readConfig(file, section):
+    """
+    Read configuration file
+    """
     file = Path(file)
     with open(file, 'r') as configFile:
         try:
@@ -25,6 +28,9 @@ def defaultModelParams():
 
 # Update model parameter object mPar and set default parameters
 def setupModelParams(mPar, clockwisePrecession=False, temperature=None):
+    """
+    Update model parameter object mPar and set default parameters
+    """
 
     defaultmPar = defaultModelParams()
 
