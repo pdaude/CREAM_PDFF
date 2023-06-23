@@ -2,3 +2,5 @@ nbsphinx
 sphinxcontrib-packages
 sphinxcontrib-matlabdomain
 sphinx-rtd-theme
+numpy
+yaml

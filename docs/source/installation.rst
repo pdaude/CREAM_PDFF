@@ -9,6 +9,7 @@ We strongly recommend that you install CREAM_PDFF in a virtual environment !
     pip install -e CREAM_PDFF
 
 
+
 Fatty_RIOT_GC repository
 ************************
 
@@ -28,3 +29,35 @@ To convert CUDA file to mex file
 
     cd fieldmap-graph-cut/code/gandalf/
     mexcuda residualcalculation_cuda.cu
+
+B0-NICE repository
+******************
+
+No instruction is required.
+
+GOOSE repository
+****************
+
+No instruction is required.
+
+IDEAL-CE repository
+*******************
+
+No instruction is required.
+
+Hernando-GC repository
+**********************
+
+No instruction is required.
+
+MSCGA-A repository
+******************
+
+No instruction is required.
+
+MSCGA-B repository
+******************
+
+No instruction is required.
+
+

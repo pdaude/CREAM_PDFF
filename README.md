@@ -26,13 +26,11 @@ This open-source is described in the following abstract :
 
 ## Installation guidelines
 
-### VLGCA repository
-To convert CUDA file to mex file
+[Installation documentation](https://cream-pdff.readthedocs.io/en/latest/installation.html)
 
-```bash
-cd fieldmap-graph-cut/code/gandalf/
-mexcuda residualcalculation_cuda.cu
-```
+## Documentation
+
+[Documentation](https://cream-pdff.readthedocs.io/en/latest/)
 
 ## References
 

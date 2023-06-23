@@ -9,7 +9,7 @@ Welcome to CREAM_PDFF's documentation!
 
 What is CREAM_PDFF ?
 ********************
-The CREAM_PDFF is a open-source multi-language toolbox (Python & MATLAB) developed to evaluate state-of-the art open source fat-water separation algorithms for proton density fat fraction (PDFF) and R2* quantificication.
+The CREAM_PDFF is a open-source multi-language toolbox (Python & MATLAB) developed to evaluate state-of-the art open source fat-water separation algorithms for proton density fat fraction (PDFF) and R2* quantification.
 
 
 
@@ -17,9 +17,11 @@ The CREAM_PDFF is a open-source multi-language toolbox (Python & MATLAB) develop
    :maxdepth: 1
    :caption: Contents:
    
-   installation
-   apidoc
    notebooks/AlgoInfoTable
+   installation
+   howdoesitwork
+   apidoc
+   
  
 
 Publication
