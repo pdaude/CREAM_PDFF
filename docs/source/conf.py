@@ -42,7 +42,7 @@ extensions = ['sphinx.ext.autodoc',
 'nbsphinx',
 ]
 
-matlab_src_dir=op.abspath('../../')
+matlab_src_dir=op.dirname(op.dirname(op.abspath('../../')))
 
 #primary_domain='mat'
 
