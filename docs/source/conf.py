@@ -42,8 +42,9 @@ extensions = ['sphinx.ext.autodoc',
 'nbsphinx',
 ]
 
-matlab_src_dir=op.dirname(op.dirname(op.abspath('../../')))
-
+#matlab_src_dir=op.dirname(op.abspath('../../'))
+matlab_src_dir=op.dirname(op.dirname(op.dirname(op.dirname(op.abspath(__file__)))))
+print(matlab_src_dir)
 #primary_domain='mat'
 
 # Add any paths that contain templates here, relative to this directory.
