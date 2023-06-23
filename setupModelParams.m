@@ -1,5 +1,5 @@
 function [species,FWSpectrumOutput] = setupModelParams(mPar,varargin) 
-%setupModel Params is 
+%Update model parameter object mPar and set default parameters
     opts.clockwisePrecession = false; 
     opts.temperature= []; 
     
