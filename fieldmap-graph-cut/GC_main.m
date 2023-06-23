@@ -1,7 +1,11 @@
 function [params, sse] = GC_main(imDataParams,algoParams)
 %% check validaty of parameters
 algoParams = checkParamsAndSetDefaults_GANDALF(imDataParams, algoParams);
-
+%%
+if imDataParams.PrecessionIsClockwise ~= 1
+  imDataParams.images = conj(imDataParams.images);
+  imDataParams.PrecessionIsClockwise = 1;
+end
 %% calculate VARPRO residual and extract minima 
 VARPROparams = calculateMinimaDirect(imDataParams, algoParams);
 

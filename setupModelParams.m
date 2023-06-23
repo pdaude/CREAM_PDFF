@@ -1,4 +1,5 @@
 function [species,FWSpectrumOutput] = setupModelParams(mPar,varargin) 
+%Update model parameter object mPar and set default parameters
     opts.clockwisePrecession = false; 
     opts.temperature= []; 
     
@@ -23,7 +24,7 @@ function [species,FWSpectrumOutput] = setupModelParams(mPar,varargin)
     end
     
     if ~isempty(opts.temperature) %Temperature dependence according to Hernando 2014
-         defaultmPar.watCS = 1.3 + 3.748 - .01085 * opts.temperature;  % Temp in [°C]
+         mPar.watCS = 1.3 + 3.748 - .01085 * opts.temperature;  % Temp in [°C]
     end
     
      %List of all FWSpectrumClasses

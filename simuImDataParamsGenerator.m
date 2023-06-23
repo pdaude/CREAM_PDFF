@@ -41,17 +41,53 @@ end
 % padding=0
 
 %Simulation 2
+% b0=2.895; %(T) %VIDA B0 123.260178 (MHz) -> 2.895 T
+% spectrumName='Hodson2008';
+% TEtypes={'IN/OPP','IDEAL','MINIMUM'};% TE IN/OPP ; IDEAL  
+% NTEs=[3,5,7,9]; %number of TE 3 5 7 9
+% SNRs=50:10:100; % SNRs 50-100-10
+% zNrep=100; %Number of repetition
+% xFF=0:1:100; %
+% phi=pi/6; % 30°
+% r2star= 1/20e-3; % T2*=30ms
+% yB0=-300:6:300;
+% padding=5; % Avoid border effect
+% dTEmin=1.37e-3;
+% TEmin=1.09e-3;
+
+%Simulation 3
+% b0=2.895; %(T) %VIDA B0 123.260178 (MHz) -> 2.895 T
+% spectrumName='Hodson2008';
+% TEtypes={'IN/OPP','IDEAL','MINIMUM'};% TE IN/OPP ; IDEAL  
+% %TEtypes={'IDEAL','MINIMUM'};% TE IN/OPP ; IDEAL 
+% NTEs=[3,5,7,9]; %number of TE 3 5 7 9
+% SNRs=50:10:100; % SNRs 50-100-10
+% zNrep=100; %Number of repetition
+% xFF=0:1:100; %
+% phi=pi/6; % 30°
+% r2star= 1/20e-3; % T2*=30ms
+% yB0=-300:6:300;
+% padding=5; % Avoid border effect
+% dTEmin=1.68e-3;
+% TEmin=0.98e-3;
+
+
+%Simulation 4
 b0=2.895; %(T) %VIDA B0 123.260178 (MHz) -> 2.895 T
 spectrumName='Hodson2008';
 TEtypes={'IN/OPP','IDEAL','MINIMUM'};% TE IN/OPP ; IDEAL  
+%TEtypes={'IDEAL','MINIMUM'};% TE IN/OPP ; IDEAL 
 NTEs=[3,5,7,9]; %number of TE 3 5 7 9
-SNRs=50:10:100; % SNRs 50-100-10
+SNRs=[10, 50,100]; % SNRs 50-100-10
 zNrep=100; %Number of repetition
 xFF=0:1:100; %
 phi=pi/6; % 30°
 r2star= 1/20e-3; % T2*=30ms
 yB0=-300:6:300;
 padding=5; % Avoid border effect
+dTEmin=1.68e-3;
+TEmin=0.98e-3;
+
 
 %Avoiding borders effects
 xFF=padarray(xFF,[0,padding],'replicate');
@@ -86,7 +122,7 @@ for TEtype=TEtypes
 
             %bydder TE (0.20,0.56,0.93,1.30,1.66,2.03)pi
             %TE=[0.20,0.56,0.93,1.30,1.66,2.03]/(larmor*(4.7-1.3));
-            TE= simuGenericTE(NTE,imDataParams.FieldStrength,TEtype);
+            TE= simuGenericTE(NTE,imDataParams.FieldStrength,TEtype,'dTEmin',dTEmin,'TEmin',TEmin);
 
             switch TEtype
                 
@@ -134,23 +170,28 @@ for TEtype=TEtypes
             YM=B.*(A*X);
             img = reshape(YM,numel(TE),x,y,z,1);
             image=permute(img,[2,3,4,5,1]);
-
-
-
+            %√(2−π/2) ≈ 0.66.
+            %The measured SNR = S/N must then be multiplied by the 0.66 Rayleigh distribution correction factor to calculate the true SNR.
             %Create NOISE with a SNR given
+            %Simulation 1 2 3
+            Smean=mean(abs(image(:,:,:,1,1)),'all');
+            AmpN=Smean/SNR/sqrt(2-pi/2);
+            Noise_signal=AmpN*complex(randn(size(image)),randn(size(image)));
+            SNRmeas=Smean/std(abs(Noise_signal(:)));
+            disp(SNRmeas)
+%             PS=sum(abs(image(:)).^2)/numel(image);
+% 
+%             Noise_signal=sqrt(1/2)*complex(randn(size(image)),randn(size(image)));
+%             Pn=sum(abs(Noise_signal(:)).^2)/numel(image);
+% 
+%             % Pn is not equal to 1
+%             Pnoise=sqrt(PS/SNR/Pn);
+% 
+%             N_signal=Pnoise*Noise_signal;
 
-            PS=sum(abs(image(:)).^2)/numel(image);
-
-            Noise_signal=sqrt(1/2)*complex(randn(size(image)),randn(size(image)));
-            Pn=sum(abs(Noise_signal(:)).^2)/numel(image);
-
-            % Pn is not equal to 1
-            Pnoise=sqrt(PS/SNR/Pn);
-
-            N_signal=Pnoise*Noise_signal;
 
             % image+Noise
-            imDataParams.images=image+N_signal;
+            imDataParams.images=image+Noise_signal;
 
             %Normalise over 1 / 99% instead of max to avoid outliers.
 

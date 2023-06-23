@@ -1,0 +1,11 @@
+Reference: Boehm et al.
+Referred as: VGLCA
+Method: Graph-cut
+Code: Matlab
+2D/3D: 3D
+Echo spacing: Uniform
+Year: 2021
+Code repository: VGLCA repository
+Code repository Url: https://gitlab.com/christofboehm/fieldmap-graph-cut
+main CREAM code: GC_main
+

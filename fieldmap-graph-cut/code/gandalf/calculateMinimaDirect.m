@@ -40,7 +40,6 @@ function outParams = calculateMinimaDirect(imDataParams, VARPROparams)
         %% Transfer to array
         tmp_masksignal = get_tissueMask( ...
             tmp_imDataParams.images, VARPROparams.airSignalThreshold_percent);
-        
         t2 = tic;
         [tmp_nMinimaPerVoxel, tmp_costLocalMinimaRescale, tmp_indexLocalMinimaRescale] = ...
             findLocalMinima_and_rescale(residual, tmp_masksignal, options);

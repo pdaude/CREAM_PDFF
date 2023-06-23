@@ -36,6 +36,8 @@ function outParams = GANDALF(imDataParams, algoParams, VARPROparams)
     S_Node_ID = nNodes + 1;
     T_Node_ID = nNodes + 2;
     
+    
+    
     %% Calculate Noise Weighting
     MIP = get_echoMIP(imDataParams.images);
     NoiseWeighting = scale_array2interval(MIP, [0, 1]) .* masksignal;

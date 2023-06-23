@@ -8,7 +8,7 @@ function [nMinimaPerVoxel, costLocalMinimaRescale, indexLocalMinima] = findLocal
     for Y = 1:nVoxel_Y
         for X = 1:nVoxel_X
             if masksignal(Y, X) ~= 0
-                residual_islocalminima(:, Y, X) = islocalmin(residual(:, Y, X), 'MinSeparation', options.minDistance);
+                residual_islocalminima(:, Y, X) = islocalmin(residual(:, Y, X), 'MinSeparation', options.minDistance,'MaxNumExtrema',nMaxMinimizers );
             end
         end
     end
