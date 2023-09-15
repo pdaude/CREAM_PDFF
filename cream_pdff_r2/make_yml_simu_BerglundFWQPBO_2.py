@@ -2,7 +2,8 @@ import os
 import os.path as op
 import yaml
 if __name__ == '__main__':
-    gitPath='/home/pdaude/Projet_Python/CREAM_PDFF/'
+    
+    gitPath=op.dirname(op.dirname(op.abspath(__file__)))
     simu_path=op.join(gitPath,'simulation')
     simu_ImDataParams_yml='simu_yml_BerglundFWQPBO'
     simuImDataParams_dir='simuImDataParams'

@@ -7,7 +7,7 @@ import config
 import fatWaterSeparation
 import DICOM
 import MATLAB
-import config_spectrum as cf
+import cream_pdff_r2.config_spectrum as cf
 
 
 

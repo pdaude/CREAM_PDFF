@@ -1,8 +1,5 @@
 Developer documentation
 =======================
 
-.. automodule:: config_spectrum
+.. automodule:: cream_pdff_r2
     :members:
-
-.. mat:module:: CREAM_PDFF
-.. mat:autofunction:: setupModelParams 

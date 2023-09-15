@@ -1,8 +1,7 @@
 import numpy as np
 from pathlib import Path
 import yaml
-
-import fwspectrum as fws
+import cream_pdff_r2.fwspectrum as fws
 import inspect
 
 def readConfig(file, section):
