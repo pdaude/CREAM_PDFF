@@ -19,9 +19,9 @@ The  CREAM_PDFF is a multi-language toolbox developed to evaluate state-of-the a
 
 ## Publication 
 
-This open-source is described in the following abstract :
+This open-source is described in the following article :
 
-- Daudé P, Kober F, Confort-Gouny S, Bernard M, Rapacchi S. Comparative Review of Algorithm and Method for proton-density fat fraction (PDFF) quantification. Proceedings [Internet]. Virtual Meeting; 2021. p. Poster. Available from: https://mritogether.github.io/files/abstracts/daude.pdf
+- Pierre Daudé, Tangi Roussel, Thomas Troalen, Patrick Viout, Diego Hernando, Maxime Guye, Frank Kober, Sylviane Confort Gouny, Monique Bernard, Stanislas Rapacchi. Comparative Review of Algorithm and Method for proton-density fat fraction (PDFF) quantification. Magn. Res. Med. 2023. Available from: [https://onlinelibrary.wiley.com/doi/full/10.1002/mrm.29860]
 
 
 ## Installation guidelines
